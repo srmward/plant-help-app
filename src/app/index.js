@@ -1,13 +1,14 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import Home from '../home'
+import { Route } from 'react-router-dom'
 import Join from '../join'
 
-export default () => (
-  <Router>
-    <div>
-      <Route exact path="/" component={Home} />
-      <Route path="/join" component={Join} />
-    </div>
-  </Router>
+const App = () => (
+  <div>
+    <Route exact path="/" component={Home} />
+    <Route path="/join" component={Join} />
+  </div>
 )
+
+export default withRouter(App)
