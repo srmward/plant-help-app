@@ -1,4 +1,4 @@
 {
   "presets": ["env"],
-  "plugins": ["transform-object-rest-spread"]
+  "plugins": ["emotion", "transform-object-rest-spread"]
 }

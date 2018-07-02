@@ -4,12 +4,13 @@ import Home from '../home'
 import { Route } from 'react-router-dom'
 import Join from '../join'
 import Login from '../login'
-import Nav from '../common/Nav'
+import Nav from '../common/nav'
 import WaterTable from '../water-table'
 import Identify from '../identify'
+import appStyles from './styles.js'
 
 const App = () => (
-  <div>
+  <div css={appStyles}>
     <Nav />
     <Route exact path="/" component={Home} />
     <Route path="/join" component={Join} />

@@ -17,7 +17,10 @@ export default () => (
         plants {
           name
           description
-          image
+          images {
+            url
+            size
+          }
         }
       }
     `}
