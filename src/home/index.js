@@ -9,8 +9,6 @@ const styles = {
 
 export default () => (
   <div>
-    <h1>Welcome to Plant Help.</h1>
-    <Link to="/join">Join</Link>
     <PlantShowcaseList />
   </div>
 )
