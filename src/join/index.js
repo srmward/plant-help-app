@@ -1,3 +1,4 @@
 import React from 'react'
+import JoinForm from './components/JoinForm'
 
-export default () => <div>JOIN PAGE</div>
+export default () => <JoinForm />

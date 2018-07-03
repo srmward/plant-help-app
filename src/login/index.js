@@ -1,3 +1,4 @@
 import React from 'react'
+import LoginForm from './components/LoginForm'
 
-export default () => <div>LOGIN PAGE</div>
+export default () => <LoginForm />
