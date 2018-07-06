@@ -1,10 +1,12 @@
 import React from 'react'
+import Cookies from 'js-cookie'
+
 const AuthContext = React.createContext()
 
 class AuthProvider extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { isAuth: false }
+    this.state = { isAuth: Cookies.get('userId') || false }
   }
   login = () => {
     this.setState({ isAuth: true })

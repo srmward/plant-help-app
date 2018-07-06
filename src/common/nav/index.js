@@ -13,7 +13,6 @@ export default class Nav extends Component {
             <div css={navStyles}>
               <Link to="/">Plant Help.</Link>
               {!isAuth && <Link to="/join">join</Link>}
-              <Link to="/water-table">protected</Link>
               {!isAuth && <Link to="/login">log in</Link>}
               {isAuth && <Link to="/water-table">water table</Link>}
               {isAuth && <Link to="/identify">identify</Link>}
