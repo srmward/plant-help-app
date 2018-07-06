@@ -8,15 +8,19 @@ import Nav from '../common/nav'
 import WaterTable from '../water-table'
 import Identify from '../identify'
 import appStyles from './styles.js'
+import { AuthProvider } from '../common/contexts/AuthContext'
+import ProtectedRoute from '../common/ProtectedRoute'
 
 const App = () => (
   <div css={appStyles}>
-    <Nav />
-    <Route exact path="/" component={Home} />
-    <Route path="/join" component={Join} />
-    <Route path="/login" component={Login} />
-    <Route path="/water-table" component={WaterTable} />
-    <Route path="/identify" component={Identify} />
+    <AuthProvider>
+      <Nav />
+      <Route exact path="/" component={Home} />
+      <Route path="/join" component={Join} />
+      <Route path="/login" component={Login} />
+      <ProtectedRoute path="/water-table" component={WaterTable} />
+      <ProtectedRoute path="/identify" component={Identify} />
+    </AuthProvider>
   </div>
 )
 

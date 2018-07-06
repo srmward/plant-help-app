@@ -3,6 +3,7 @@ import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 import { Redirect } from 'react-router'
 import CookieSetter from '../../common/cookie-setter'
+import { AuthConsumer } from '../../common/contexts/AuthContext'
 
 const LOG_IN = gql`
   mutation login($email: String!, $password: String!) {
@@ -66,6 +67,13 @@ class LoginForm extends Component {
               />
               <button type="submit">Log In</button>
             </form>
+            <AuthConsumer>
+              {({ login }) => {
+                {
+                  data && login()
+                }
+              }}
+            </AuthConsumer>
             {data && <CookieSetter data={data.login.token} />}
             {data && <Redirect to="/" />}
           </div>
