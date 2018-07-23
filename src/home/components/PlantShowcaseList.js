@@ -1,17 +1,13 @@
 import React from 'react'
-import { COLORS } from '../../theme'
 import { Query } from 'react-apollo'
-import { client } from '../../graphql.config'
+import { baseStyles, plantCardWrapperStyles, cardStyles } from './styles'
 import gql from 'graphql-tag'
 import PlantShowcase from './PlantShowcase'
 
-const styles = {
-  color: COLORS.PRIMARY,
-}
-
+//TODO: Grab image as proper size
 export default () => (
   <Query
-    style={{ ...styles }}
+    css={baseStyles}
     query={gql`
       {
         plants {
@@ -30,9 +26,9 @@ export default () => (
       if (error) return <p>{console.log(error)}</p>
 
       return (
-        <div>
+        <div css={plantCardWrapperStyles}>
           {data.plants.map((plant, i) => (
-            <div key={i}>
+            <div key={i} css={cardStyles}>
               <PlantShowcase data={plant} />
             </div>
           ))}

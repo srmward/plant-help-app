@@ -4,6 +4,8 @@ html {
   padding: 0;
   background-color: #f3f4f8;
   font-family: 'Roboto Mono', monospace;
+  /* font-family: -apple-system, BlinkMacSystemFont, HelveticaNeue, Helvetica,
+    Roboto, Arial, sans-serif; */
 }
 
 * {
