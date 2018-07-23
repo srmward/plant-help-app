@@ -11,6 +11,9 @@ export default () => (
           name
           plants {
             name
+            exposure
+            repot
+            frequency
           }
         }
       }
@@ -22,9 +25,19 @@ export default () => (
 
       return (
         <div>
-          {console.log(data.users)}
+          <h1>Water Table</h1>
+          <hr />
           {data.users[0].plants.length ? (
-            <ul>{data.users[0].plants.map(p => <li>{p.name}</li>)}</ul>
+            <div>
+              {data.users[0].plants.map((p, i) => (
+                <div key={i}>
+                  <h4>{p.name}</h4>
+                  <p>Light exposure: {p.exposure}</p>
+                  <p>Water frequency: {p.frequency}</p>
+                  {p.repot && <p>Repot: {p.repot}</p>}
+                </div>
+              ))}
+            </div>
           ) : (
             'You have no plants.'
           )}
