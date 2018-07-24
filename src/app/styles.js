@@ -1,4 +1,5 @@
 import { css } from 'emotion'
+import {MEDIA} from '../theme'
 
 export default css`
   display: grid;
@@ -7,7 +8,7 @@ export default css`
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  @media (min-width: 900px) {
+  ${MEDIA.TABLET_UP} {
     grid-template-columns: 300px 1fr;
   }
 `

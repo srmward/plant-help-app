@@ -3,6 +3,12 @@ import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 import { Redirect } from 'react-router'
 import CookieSetter from '../../common/cookie-setter'
+import {
+  formStyles,
+  inputStyles,
+  buttonStyles,
+  headingStyles,
+} from '../../common/styles'
 
 const SIGN_UP = gql`
   mutation signup($name: String!, $email: String!, $password: String!) {
@@ -38,8 +44,9 @@ class JoinForm extends Component {
       <Mutation mutation={SIGN_UP}>
         {(signup, { data, error }) => (
           <div>
-            <h1>Join</h1>
+            <h1 css={headingStyles}>join</h1>
             <form
+              css={formStyles}
               onSubmit={e => {
                 e.preventDefault()
                 signup({
@@ -48,14 +55,28 @@ class JoinForm extends Component {
               }}
             >
               {error && <p>Invalid Credentials. Please try again.</p>}
-              <input name="name" onChange={this.handleChange} />
-              <input name="email" onChange={this.handleChange} />
+              <label>name</label>
               <input
+                css={inputStyles}
+                name="name"
+                onChange={this.handleChange}
+              />
+              <label>email</label>
+              <input
+                css={inputStyles}
+                name="email"
+                onChange={this.handleChange}
+              />
+              <label>password</label>
+              <input
+                css={inputStyles}
                 type="password"
                 name="password"
                 onChange={this.handleChange}
               />
-              <button type="submit">Sign Up</button>
+              <button css={buttonStyles} type="submit">
+                sign up
+              </button>
             </form>
             {data && <CookieSetter data={data.signup.token} />}
             {data && <Redirect to="/" />}

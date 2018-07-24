@@ -4,6 +4,12 @@ import { Mutation } from 'react-apollo'
 import { Redirect } from 'react-router'
 import CookieSetter from '../../common/cookie-setter'
 import { AuthConsumer } from '../../common/contexts/AuthContext'
+import {
+  inputStyles,
+  formStyles,
+  buttonStyles,
+  headingStyles,
+} from '../../common/styles'
 
 const LOG_IN = gql`
   mutation login($email: String!, $password: String!) {
@@ -40,8 +46,9 @@ class LoginForm extends Component {
       <Mutation mutation={LOG_IN}>
         {(login, { data, error }) => (
           <div>
-            <h1>Log In</h1>
+            <h1 css={headingStyles}>log in</h1>
             <form
+              css={formStyles}
               onSubmit={e => {
                 e.preventDefault()
                 login({
@@ -50,14 +57,18 @@ class LoginForm extends Component {
               }}
             >
               {error && <p>Invalid Credentials. Please try again.</p>}
+              <label>email</label>
               <input
+                css={inputStyles}
                 name="email"
                 onChange={this.handleChange}
                 ref={node => {
                   input = node
                 }}
               />
+              <label>password</label>
               <input
+                css={inputStyles}
                 type="password"
                 name="password"
                 onChange={this.handleChange}
@@ -65,7 +76,9 @@ class LoginForm extends Component {
                   input = node
                 }}
               />
-              <button type="submit">Log In</button>
+              <button css={buttonStyles} type="submit">
+                log in
+              </button>
             </form>
             <AuthConsumer>
               {({ login }) => {
