@@ -12,7 +12,7 @@ export default class Nav extends Component {
           {({ isAuth, logout }) => (
             <div css={navStyles}>
               <Link to="/" css={navLinkStyles}>
-                Plant Help.
+                plant help.
               </Link>
               {!isAuth && (
                 <Link to="/join" css={navLinkStyles}>

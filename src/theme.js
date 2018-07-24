@@ -4,6 +4,7 @@ export const COLORS = {
   ACCENT: '#028090',
   OFFWHITE: '#F3F4F8',
   PASTEL_BLUE: '#B5BDD4',
+  ERROR_RED: '#F06449',
 }
 
 export const MEDIA = {

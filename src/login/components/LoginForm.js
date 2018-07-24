@@ -9,6 +9,7 @@ import {
   formStyles,
   buttonStyles,
   headingStyles,
+  errorStyles,
 } from '../../common/styles'
 
 const LOG_IN = gql`
@@ -56,7 +57,9 @@ class LoginForm extends Component {
                 })
               }}
             >
-              {error && <p>Invalid Credentials. Please try again.</p>}
+              {error && (
+                <p css={errorStyles}>Invalid Credentials. Please try again.</p>
+              )}
               <label>email</label>
               <input
                 css={inputStyles}

@@ -8,6 +8,7 @@ import {
   inputStyles,
   buttonStyles,
   headingStyles,
+  errorStyles,
 } from '../../common/styles'
 
 const SIGN_UP = gql`
@@ -54,7 +55,9 @@ class JoinForm extends Component {
                 })
               }}
             >
-              {error && <p>Invalid Credentials. Please try again.</p>}
+              {error && (
+                <p css={errorStyles}>Invalid Credentials. Please try again.</p>
+              )}
               <label>name</label>
               <input
                 css={inputStyles}

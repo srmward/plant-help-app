@@ -32,3 +32,7 @@ export const buttonStyles = css`
   }
   cursor: pointer;
 `
+
+export const errorStyles = css`
+  color: ${COLORS.ERROR_RED};
+`
