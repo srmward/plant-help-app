@@ -3,7 +3,7 @@ import { COLORS } from '../../theme'
 
 const MARGIN_SIZE = '80px'
 
-const MARGIN_BOTTOM = '1.4rem'
+const MARGIN_BOTTOM = '1.5rem'
 
 const MAX_WIDTH_DESKTOP = '750px'
 

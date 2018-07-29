@@ -1,18 +1,19 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Cookies from 'js-cookie'
 
 const AuthContext = React.createContext()
 
-class AuthProvider extends React.Component {
+class AuthProvider extends Component {
   constructor(props) {
     super(props)
-    this.state = { isAuth: Cookies.get('userId') || false }
+    this.state = {isAuth: Cookies.get('userId') || false}
   }
   login = () => {
-    this.setState({ isAuth: true })
+    this.setState({isAuth: true})
   }
   logout = () => {
-    this.setState({ isAuth: false })
+    this.setState({isAuth: false})
+    window.location.href = '/'
   }
   render() {
     return (
@@ -31,4 +32,4 @@ class AuthProvider extends React.Component {
 
 const AuthConsumer = AuthContext.Consumer
 
-export { AuthProvider, AuthConsumer }
+export {AuthProvider, AuthConsumer}

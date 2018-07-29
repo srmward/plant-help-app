@@ -1,15 +1,15 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
-import { navStyles, navLinkStyles } from './styles'
+import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
+import {navStyles, navLinkStyles} from './styles'
 import Cookies from 'js-cookie'
-import { AuthConsumer } from '../contexts/AuthContext'
+import {AuthConsumer} from '../contexts/AuthContext'
 
 export default class Nav extends Component {
   render() {
     return (
       <nav>
         <AuthConsumer>
-          {({ isAuth, logout }) => (
+          {({isAuth, logout}) => (
             <div css={navStyles}>
               <Link to="/" css={navLinkStyles}>
                 plant help.
