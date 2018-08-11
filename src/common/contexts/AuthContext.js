@@ -6,21 +6,23 @@ const AuthContext = React.createContext()
 class AuthProvider extends Component {
   constructor(props) {
     super(props)
-    this.state = {isAuth: Cookies.get('userId') || false}
+    this.state = {
+      isAuth: Cookies.get('userId') || false,
+      email: Cookies.get('email') || false
+    }
   }
-  login = () => {
-    this.setState({isAuth: true})
-  }
+
   logout = () => {
     this.setState({isAuth: false})
     window.location.href = '/'
   }
+
   render() {
     return (
       <AuthContext.Provider
         value={{
           isAuth: this.state.isAuth,
-          login: this.login,
+          email: this.state.email,
           logout: this.logout,
         }}
       >

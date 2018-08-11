@@ -1,4 +1,4 @@
-import { css } from 'emotion'
+import {css} from 'emotion'
 import {MEDIA} from '../theme'
 
 export default css`
@@ -9,6 +9,6 @@ export default css`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   ${MEDIA.TABLET_UP} {
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 180px 1fr;
   }
 `

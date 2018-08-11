@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import gql from 'graphql-tag'
-import { Mutation } from 'react-apollo'
-import { Redirect } from 'react-router'
+import {Mutation} from 'react-apollo'
 import CookieSetter from '../../common/cookie-setter'
-import { AuthConsumer } from '../../common/contexts/AuthContext'
+
 import {
   inputStyles,
   formStyles,
@@ -41,11 +40,12 @@ class LoginForm extends Component {
   }
 
   render() {
+
     let input = ''
 
     return (
       <Mutation mutation={LOG_IN}>
-        {(login, { data, error }) => (
+        {(login, {data, error}) => (
           <div>
             <h1 css={headingStyles}>log in</h1>
             <form
@@ -83,15 +83,7 @@ class LoginForm extends Component {
                 log in
               </button>
             </form>
-            <AuthConsumer>
-              {({ login }) => {
-                {
-                  data && login()
-                }
-              }}
-            </AuthConsumer>
-            {data && <CookieSetter data={data.login.token} />}
-            {data && <Redirect to="/" />}
+            {data && <CookieSetter data={data} />}
           </div>
         )}
       </Mutation>
