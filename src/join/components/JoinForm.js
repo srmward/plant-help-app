@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import gql from 'graphql-tag'
 import {Mutation} from 'react-apollo'
 import {Redirect} from 'react-router'
-import CookieSetter from '../../common/cookie-setter'
+import AuthCookieSetter from '../../common/auth-cookie-setter'
 import {
   formStyles,
   inputStyles,
@@ -84,8 +84,7 @@ class JoinForm extends Component {
                 sign up
               </button>
             </form>
-            {data && <CookieSetter data={data.signup.token} />}
-            {data && <Redirect to="/" />}
+            {data && <AuthCookieSetter token={data.signup.token} email={data.signup.user.email} />}
           </div>
         )}
       </Mutation>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import gql from 'graphql-tag'
 import {Mutation} from 'react-apollo'
-import CookieSetter from '../../common/cookie-setter'
+import AuthCookieSetter from '../../common/auth-cookie-setter'
 
 import {
   inputStyles,
@@ -85,7 +85,7 @@ class LoginForm extends Component {
                 log in
               </button>
             </form>
-            {data && <CookieSetter data={data} />}
+            {data && <AuthCookieSetter token={data.login.token} email={data.login.user.email} />}
           </div>
         )}
       </Mutation>

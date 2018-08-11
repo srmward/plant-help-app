@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import {navStyles, navLinkStyles} from './styles'
-import Cookies from 'js-cookie'
 import {AuthConsumer} from '../contexts/AuthContext'
 
 export default class Nav extends Component {
@@ -38,7 +37,6 @@ export default class Nav extends Component {
                 <p
                   css={navLinkStyles}
                   onClick={() => {
-                    Cookies.remove('userId')
                     logout()
                   }}
                 >
