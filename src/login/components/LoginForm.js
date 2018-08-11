@@ -68,6 +68,7 @@ class LoginForm extends Component {
                 ref={node => {
                   input = node
                 }}
+                required
               />
               <label>password</label>
               <input
@@ -78,6 +79,7 @@ class LoginForm extends Component {
                 ref={node => {
                   input = node
                 }}
+                required
               />
               <button css={buttonStyles} type="submit">
                 log in

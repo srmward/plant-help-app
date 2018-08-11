@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import gql from 'graphql-tag'
-import { Mutation } from 'react-apollo'
-import { Redirect } from 'react-router'
+import {Mutation} from 'react-apollo'
+import {Redirect} from 'react-router'
 import CookieSetter from '../../common/cookie-setter'
 import {
   formStyles,
@@ -43,7 +43,7 @@ class JoinForm extends Component {
   render() {
     return (
       <Mutation mutation={SIGN_UP}>
-        {(signup, { data, error }) => (
+        {(signup, {data, error}) => (
           <div>
             <h1 css={headingStyles}>join</h1>
             <form
@@ -63,12 +63,14 @@ class JoinForm extends Component {
                 css={inputStyles}
                 name="name"
                 onChange={this.handleChange}
+                required
               />
               <label>email</label>
               <input
                 css={inputStyles}
                 name="email"
                 onChange={this.handleChange}
+                required
               />
               <label>password</label>
               <input
@@ -76,6 +78,7 @@ class JoinForm extends Component {
                 type="password"
                 name="password"
                 onChange={this.handleChange}
+                required
               />
               <button css={buttonStyles} type="submit">
                 sign up

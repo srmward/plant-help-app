@@ -31,7 +31,7 @@ export default () => (
               <div>
                 <h1>Water Table</h1>
                 <hr />
-                {data.users[0] && data.users[0].plants.length ? (
+                {data.users[0].plants.length ? (
                   <div>
                     {data.users[0].plants.map((p, i) => (
                       <div key={i}>
