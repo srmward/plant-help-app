@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Cookies from 'js-cookie'
 
 const AuthContext = React.createContext()
@@ -8,11 +8,11 @@ class AuthProvider extends Component {
     super(props)
     this.state = {
       isAuth: Cookies.get('userId') || false,
-      email: Cookies.get('email') || false
+      email: Cookies.get('email') || false,
     }
   }
 
-  handleAuth = ({login, signup}) => {
+  handleAuth = ({ login, signup }) => {
     Cookies.set('email', login ? login.user.email : signup.user.email, {
       expires: 0.25,
     })
@@ -23,7 +23,7 @@ class AuthProvider extends Component {
   }
 
   logout = () => {
-    this.setState({isAuth: false})
+    this.setState({ isAuth: false })
     Cookies.remove('userId')
     Cookies.remove('email')
     window.location.href = '/'
@@ -47,4 +47,4 @@ class AuthProvider extends Component {
 
 const AuthConsumer = AuthContext.Consumer
 
-export {AuthProvider, AuthConsumer}
+export { AuthProvider, AuthConsumer }
