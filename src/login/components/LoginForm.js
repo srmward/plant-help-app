@@ -1,8 +1,7 @@
 import React, {Component} from 'react'
 import gql from 'graphql-tag'
 import {Mutation} from 'react-apollo'
-import AuthCookieSetter from '../../common/auth-cookie-setter'
-
+import {AuthConsumer} from '../../common/contexts/AuthContext';
 import {
   inputStyles,
   formStyles,
@@ -48,44 +47,48 @@ class LoginForm extends Component {
         {(login, {data, error}) => (
           <div>
             <h1 css={headingStyles}>log in</h1>
-            <form
-              css={formStyles}
-              onSubmit={e => {
-                e.preventDefault()
-                login({
-                  variables: this.state,
-                })
-              }}
-            >
-              {error && (
-                <p css={errorStyles}>Invalid Credentials. Please try again.</p>
-              )}
-              <label>email</label>
-              <input
-                css={inputStyles}
-                name="email"
-                onChange={this.handleChange}
-                ref={node => {
-                  input = node
-                }}
-                required
-              />
-              <label>password</label>
-              <input
-                css={inputStyles}
-                type="password"
-                name="password"
-                onChange={this.handleChange}
-                ref={node => {
-                  input = node
-                }}
-                required
-              />
-              <button css={buttonStyles} type="submit">
-                log in
+            <AuthConsumer>
+              {({handleAuth}) => {
+                return <form
+                  css={formStyles}
+                  onSubmit={e => {
+                    e.preventDefault()
+                    login({
+                      variables: this.state,
+                    })
+                  }}
+                >
+                  {error && (
+                    <p css={errorStyles}>Invalid Credentials. Please try again.</p>
+                  )}
+                  <label>email</label>
+                  <input
+                    css={inputStyles}
+                    name="email"
+                    onChange={this.handleChange}
+                    ref={node => {
+                      input = node
+                    }}
+                    required
+                  />
+                  <label>password</label>
+                  <input
+                    css={inputStyles}
+                    type="password"
+                    name="password"
+                    onChange={this.handleChange}
+                    ref={node => {
+                      input = node
+                    }}
+                    required
+                  />
+                  <button css={buttonStyles} type="submit">
+                    log in
               </button>
-            </form>
-            {data && <AuthCookieSetter token={data.login.token} email={data.login.user.email} />}
+                  {data && handleAuth(data)}
+                </form>
+              }}
+            </AuthConsumer>
           </div>
         )}
       </Mutation>

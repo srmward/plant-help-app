@@ -12,6 +12,16 @@ class AuthProvider extends Component {
     }
   }
 
+  handleAuth = ({login, signup}) => {
+    Cookies.set('email', login ? login.user.email : signup.user.email, {
+      expires: 0.25,
+    })
+    Cookies.set('userId', login ? login.token : signup.token, {
+      expires: 0.25,
+    })
+    window.location.href = '/'
+  }
+
   logout = () => {
     this.setState({isAuth: false})
     Cookies.remove('userId')
@@ -25,6 +35,7 @@ class AuthProvider extends Component {
         value={{
           isAuth: this.state.isAuth,
           email: this.state.email,
+          handleAuth: this.handleAuth,
           logout: this.logout,
         }}
       >
