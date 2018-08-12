@@ -1,14 +1,14 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import {navStyles, navLinkStyles} from './styles'
-import {AuthConsumer} from '../contexts/AuthContext'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { navStyles, navLinkStyles } from './styles'
+import { AuthConsumer } from '../contexts/AuthContext'
 
 export default class Nav extends Component {
   render() {
     return (
       <nav>
         <AuthConsumer>
-          {({isAuth, logout}) => (
+          {({ isAuth, logout }) => (
             <div css={navStyles}>
               <Link to="/" css={navLinkStyles}>
                 plant help.
@@ -26,11 +26,6 @@ export default class Nav extends Component {
               {isAuth && (
                 <Link to="/water-table" css={navLinkStyles}>
                   water table
-                </Link>
-              )}
-              {isAuth && (
-                <Link to="/identify" css={navLinkStyles}>
-                  identify
                 </Link>
               )}
               {isAuth && (

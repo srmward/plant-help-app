@@ -14,4 +14,5 @@ export const navLinkStyles = css`
   :visited {
     color: ${COLORS.PRIMARY};
   }
+  cursor: pointer;
 `

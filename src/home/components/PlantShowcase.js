@@ -1,9 +1,10 @@
 import React from 'react'
-import {cardImageStyles, cardTitleStyles, cardGraphStyles} from './styles'
+import { cardImageStyles, cardTitleStyles, cardGraphStyles } from './styles'
 import AddToCollectionButton from '../../common/ctas/AddToCollectionButton'
 import Cookies from 'js-cookie'
+import { AuthConsumer } from '../../common/contexts/AuthContext'
 
-export default ({data}) => (
+export default ({ data }) => (
   <div>
     <p css={cardTitleStyles}>{data.name}</p>
     <img
@@ -12,6 +13,15 @@ export default ({data}) => (
       css={cardImageStyles}
     />
     <p css={cardGraphStyles}>{data.description}</p>
-    <AddToCollectionButton email={Cookies.get('email')} plantName={data.name} />
+    <AuthConsumer>
+      {({ isAuth }) =>
+        isAuth && (
+          <AddToCollectionButton
+            email={Cookies.get('email')}
+            plantName={data.name}
+          />
+        )
+      }
+    </AuthConsumer>
   </div>
 )
