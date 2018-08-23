@@ -1,18 +1,47 @@
 import { css } from 'emotion'
-import { COLORS } from '../../theme'
+import { COLORS, MEDIA } from '../../theme'
 
 export const navStyles = css`
-  position: fixed;
   display: grid;
-  min-height: 50vh;
   font-weight: bold;
-  font-size: 1.2rem;
-  grid-template-columns: 1fr;
+  list-style-type: none;
+  grid-auto-flow: row;
+  ${MEDIA.TABLET_UP} {
+    position: fixed;
+    min-height: 50vh;
+    font-size: 1.2rem;
+    grid-template-columns: 1fr;
+    padding-left: 1rem;
+  }
 `
-export const navLinkStyles = css`
+
+export const mobileMenuLink = css`
+  display: block;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+  position: absolute;
+  color: ${COLORS.SECONDARY};
+  right: 3rem;
+  top: 16px;
+  ${MEDIA.TABLET_UP} {
+    display: none;
+  }
+`
+
+export const navLogoStyles = css`
+  display: block;
   color: ${COLORS.PRIMARY};
+`
+
+export const navLinkStyles = css`
+  display: none;
+  color: ${COLORS.PRIMARY};
+  cursor: pointer;
   :visited {
     color: ${COLORS.PRIMARY};
   }
-  cursor: pointer;
+  ${MEDIA.TABLET_UP} {
+    display: block;
+  }
 `

@@ -7,13 +7,15 @@ import Login from '../login'
 import Nav from '../common/nav'
 import WaterTable from '../water-table'
 import Identify from '../identify'
-import appStyles from './styles.js'
+import appStyles from './styles'
+import { mobileMenuLink } from '../common/nav/styles'
 import { AuthProvider } from '../common/contexts/AuthContext'
 import ProtectedRoute from '../common/ProtectedRoute'
 
 const App = () => (
   <div css={appStyles}>
     <AuthProvider>
+      <div css={mobileMenuLink}>menu</div>
       <Nav />
       <Route exact path="/" component={Home} />
       <Route path="/join" component={Join} />

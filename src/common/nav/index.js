@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { navStyles, navLinkStyles } from './styles'
+import { navStyles, navLinkStyles, navLogoStyles } from './styles'
 import { AuthConsumer } from '../contexts/AuthContext'
 
 export default class Nav extends Component {
@@ -9,36 +9,46 @@ export default class Nav extends Component {
       <nav>
         <AuthConsumer>
           {({ isAuth, logout }) => (
-            <div css={navStyles}>
-              <Link to="/" css={navLinkStyles}>
-                plant help.
-              </Link>
-              {!isAuth && (
-                <Link to="/join" css={navLinkStyles}>
-                  join
+            <ul css={navStyles}>
+              <li>
+                <Link to="/" css={navLogoStyles}>
+                  plant help.
                 </Link>
+              </li>
+              {!isAuth && (
+                <li>
+                  <Link to="/join" css={navLinkStyles}>
+                    join
+                  </Link>
+                </li>
               )}
               {!isAuth && (
-                <Link to="/login" css={navLinkStyles}>
-                  log in
-                </Link>
+                <li>
+                  <Link to="/login" css={navLinkStyles}>
+                    log in
+                  </Link>
+                </li>
               )}
               {isAuth && (
-                <Link to="/water-table" css={navLinkStyles}>
-                  water table
-                </Link>
+                <li>
+                  <Link to="/water-table" css={navLinkStyles}>
+                    water table
+                  </Link>
+                </li>
               )}
               {isAuth && (
-                <p
-                  css={navLinkStyles}
-                  onClick={() => {
-                    logout()
-                  }}
-                >
-                  log out
-                </p>
+                <li>
+                  <p
+                    css={navLinkStyles}
+                    onClick={() => {
+                      logout()
+                    }}
+                  >
+                    log out
+                  </p>
+                </li>
               )}
-            </div>
+            </ul>
           )}
         </AuthConsumer>
       </nav>
