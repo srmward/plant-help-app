@@ -1,7 +1,8 @@
 import { css } from 'emotion'
-import { COLORS, MEDIA } from '../../theme'
+import { COLORS, MEDIA, TRANSITION_TIMINGS } from '../../theme'
 
 export const navStyles = css`
+  color: ${COLORS.PRIMARY};
   display: grid;
   font-weight: bold;
   list-style-type: none;
@@ -29,19 +30,30 @@ export const mobileMenuLink = css`
   }
 `
 
-export const navLogoStyles = css`
-  display: block;
-  color: ${COLORS.PRIMARY};
-`
-
-export const navLinkStyles = css`
-  display: none;
-  color: ${COLORS.PRIMARY};
-  cursor: pointer;
+export const commonNavLinkStyles = css`
   :visited {
     color: ${COLORS.PRIMARY};
   }
+`
+
+export const navLogoStyles = css`
+  transition: all 0.1s ${TRANSITION_TIMINGS.FLICKER};
+  display: block;
+  ${commonNavLinkStyles};
+  :hover {
+    color: ${COLORS.SECONDARY};
+  }
+`
+
+export const navLinkStyles = css`
+  transition: all 0.1s ${TRANSITION_TIMINGS.FLICKER};
+  display: none;
+  cursor: pointer;
+  ${commonNavLinkStyles};
   ${MEDIA.TABLET_UP} {
     display: block;
+  }
+  :hover {
+    color: ${COLORS.SECONDARY};
   }
 `

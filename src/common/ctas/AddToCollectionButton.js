@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { primaryCTAStyles } from './styles'
 import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 
@@ -27,6 +28,7 @@ export default class AddToCollectionButton extends Component {
           }
           return (
             <button
+              css={primaryCTAStyles}
               onClick={() =>
                 updateUser({
                   variables: {

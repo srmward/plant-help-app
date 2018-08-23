@@ -1,7 +1,8 @@
 export const COLORS = {
   PRIMARY: '#003265',
   SECONDARY: '#7E8EB4',
-  ACCENT: '#028090',
+  ACCENT: '#A23B72',
+  ACCENT_HIGHLIGHT: '#DCA875',
   OFFWHITE: '#F3F4F8',
   PASTEL_BLUE: '#B5BDD4',
   ERROR_RED: '#F06449',
@@ -30,7 +31,7 @@ export const SPACING = {
   },
 }
 
-export const TRANSITION_TIMIGS = {
+export const TRANSITION_TIMINGS = {
   CUBIC: 'cubic-bezier(0.22, 0.61, 0.36, 1)',
   FLICKER: 'cubic-bezier(0, 0.51, 0.22,-0.29)',
   EASE: 'ease-in',
@@ -44,7 +45,7 @@ export const COMMON_STYLES = {
   },
   CLICKABLE: {
     cursor: 'pointer',
-    transition: `all 0.2s ${TRANSITION_TIMIGS.EASE}`,
+    transition: `all 0.2s ${TRANSITION_TIMINGS.EASE}`,
   },
   MOBILE_HIDDEN: {
     [MEDIA.TABLET_DOWN]: {
