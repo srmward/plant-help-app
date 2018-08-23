@@ -23,7 +23,7 @@ export const mobileMenuLink = css`
   text-decoration: underline;
   position: absolute;
   color: ${COLORS.SECONDARY};
-  right: 3rem;
+  right: 2.5rem;
   top: 16px;
   ${MEDIA.TABLET_UP} {
     display: none;
@@ -37,12 +37,9 @@ export const commonNavLinkStyles = css`
 `
 
 export const navLogoStyles = css`
+  color: blue;
   transition: all 0.1s ${TRANSITION_TIMINGS.FLICKER};
   display: block;
-  ${commonNavLinkStyles};
-  :hover {
-    color: ${COLORS.SECONDARY};
-  }
 `
 
 export const navLinkStyles = css`

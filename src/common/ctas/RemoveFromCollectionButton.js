@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { secondaryCTAStyles } from './styles'
 import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 
@@ -27,6 +28,7 @@ export default class RemoveFromCollectionButton extends Component {
           }
           return (
             <button
+              css={secondaryCTAStyles}
               onClick={() => {
                 console.log(this.props.plantName)
                 removeUserPlant({
