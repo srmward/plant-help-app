@@ -21,7 +21,7 @@ export const mobileMenuLink = css`
   font-weight: bold;
   cursor: pointer;
   text-decoration: underline;
-  position: absolute;
+  position: fixed;
   color: ${COLORS.SECONDARY};
   right: 2.5rem;
   top: 16px;
@@ -38,6 +38,7 @@ export const commonNavLinkStyles = css`
 
 export const navLogoStyles = css`
   color: blue;
+  position: fixed;
   transition: all 0.1s ${TRANSITION_TIMINGS.FLICKER};
   display: block;
 `

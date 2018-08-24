@@ -10,7 +10,10 @@ export const formStyles = css`
   display: flex;
   flex-direction: column;
   ${MEDIA.TABLET_UP} {
-    max-width: 50%;
+    max-width: 35rem;
+  }
+  ${MEDIA.DESKTOP_UP} {
+    max-width: 42rem;
   }
 `
 

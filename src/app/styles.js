@@ -14,6 +14,14 @@ export default css`
 `
 
 export const mainContentStyles = css`
-  margin-left: 4rem;
+  width: 90%;
+  margin: 0 auto;
   margin-top: 1rem;
+  ${MEDIA.TABLET_UP} {
+    margin-left: 2.5rem;
+    width: 100%;
+  }
+  ${MEDIA.DESKTOP_UP} {
+    margin-left: 4rem;
+  }
 `
