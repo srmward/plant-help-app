@@ -3,6 +3,7 @@ import { MEDIA, COLORS } from '../../theme'
 
 export const headingStyles = css`
   margin-bottom: 45px;
+  color: ${COLORS.PRIMARY};
 `
 
 export const formStyles = css`
@@ -19,7 +20,12 @@ export const inputStyles = css`
   padding-left: 8px;
   font-size: 16px;
   border-style: none;
-  border: 1px solid ${COLORS.ACCENT};
+  border: 1px solid ${COLORS.OFFWHITE};
+`
+
+export const labelStyles = css`
+  margin-bottom: 0.5rem;
+  color: ${COLORS.SECONDARY};
 `
 
 export const buttonStyles = css`

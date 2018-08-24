@@ -7,6 +7,7 @@ import {
   inputStyles,
   buttonStyles,
   headingStyles,
+  labelStyles,
   errorStyles,
 } from '../../common/styles'
 
@@ -62,21 +63,21 @@ class JoinForm extends Component {
                         Invalid Credentials. Please try again.
                       </p>
                     )}
-                    <label>name</label>
+                    <label css={labelStyles}>name</label>
                     <input
                       css={inputStyles}
                       name="name"
                       onChange={this.handleChange}
                       required
                     />
-                    <label>email</label>
+                    <label css={labelStyles}>email</label>
                     <input
                       css={inputStyles}
                       name="email"
                       onChange={this.handleChange}
                       required
                     />
-                    <label>password</label>
+                    <label css={labelStyles}>password</label>
                     <input
                       css={inputStyles}
                       type="password"

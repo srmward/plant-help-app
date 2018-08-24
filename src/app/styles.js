@@ -1,5 +1,5 @@
-import {css} from 'emotion'
-import {MEDIA} from '../theme'
+import { css } from 'emotion'
+import { MEDIA } from '../theme'
 
 export default css`
   display: grid;
@@ -11,4 +11,9 @@ export default css`
   ${MEDIA.TABLET_UP} {
     grid-template-columns: 180px 1fr;
   }
+`
+
+export const mainContentStyles = css`
+  margin-left: 4rem;
+  margin-top: 1rem;
 `

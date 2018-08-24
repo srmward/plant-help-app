@@ -1,13 +1,14 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import gql from 'graphql-tag'
-import {Mutation} from 'react-apollo'
-import {AuthConsumer} from '../../common/contexts/AuthContext';
+import { Mutation } from 'react-apollo'
+import { AuthConsumer } from '../../common/contexts/AuthContext'
 import {
   inputStyles,
   formStyles,
   buttonStyles,
   headingStyles,
   errorStyles,
+  labelStyles,
 } from '../../common/styles'
 
 const LOG_IN = gql`
@@ -39,54 +40,57 @@ class LoginForm extends Component {
   }
 
   render() {
-
     let input = ''
 
     return (
       <Mutation mutation={LOG_IN}>
-        {(login, {data, error}) => (
+        {(login, { data, error }) => (
           <div>
             <h1 css={headingStyles}>log in</h1>
             <AuthConsumer>
-              {({handleAuth}) => {
-                return <form
-                  css={formStyles}
-                  onSubmit={e => {
-                    e.preventDefault()
-                    login({
-                      variables: this.state,
-                    })
-                  }}
-                >
-                  {error && (
-                    <p css={errorStyles}>Invalid Credentials. Please try again.</p>
-                  )}
-                  <label>email</label>
-                  <input
-                    css={inputStyles}
-                    name="email"
-                    onChange={this.handleChange}
-                    ref={node => {
-                      input = node
+              {({ handleAuth }) => {
+                return (
+                  <form
+                    css={formStyles}
+                    onSubmit={e => {
+                      e.preventDefault()
+                      login({
+                        variables: this.state,
+                      })
                     }}
-                    required
-                  />
-                  <label>password</label>
-                  <input
-                    css={inputStyles}
-                    type="password"
-                    name="password"
-                    onChange={this.handleChange}
-                    ref={node => {
-                      input = node
-                    }}
-                    required
-                  />
-                  <button css={buttonStyles} type="submit">
-                    log in
-              </button>
-                  {data && handleAuth(data)}
-                </form>
+                  >
+                    {error && (
+                      <p css={errorStyles}>
+                        Invalid Credentials. Please try again.
+                      </p>
+                    )}
+                    <label css={labelStyles}>email</label>
+                    <input
+                      css={inputStyles}
+                      name="email"
+                      onChange={this.handleChange}
+                      ref={node => {
+                        input = node
+                      }}
+                      required
+                    />
+                    <label css={labelStyles}>password</label>
+                    <input
+                      css={inputStyles}
+                      type="password"
+                      name="password"
+                      onChange={this.handleChange}
+                      ref={node => {
+                        input = node
+                      }}
+                      required
+                    />
+                    <button css={buttonStyles} type="submit">
+                      log in
+                    </button>
+                    {data && handleAuth(data)}
+                  </form>
+                )
               }}
             </AuthConsumer>
           </div>
