@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import Home from '../home'
 import { Route } from 'react-router-dom'
@@ -7,25 +7,42 @@ import Login from '../login'
 import Nav from '../common/nav'
 import WaterTable from '../water-table'
 import Identify from '../identify'
-import appStyles, { mainContentStyles } from './styles'
+import appStyles, { mainContentHide, mainContentShow } from './styles'
 import { mobileMenuLink } from '../common/nav/styles'
 import { AuthProvider } from '../common/contexts/AuthContext'
 import ProtectedRoute from '../common/ProtectedRoute'
 
-const App = () => (
-  <div css={appStyles}>
-    <AuthProvider>
-      <div css={mobileMenuLink}>menu</div>
-      <Nav />
-      <div css={mainContentStyles}>
-        <Route exact path="/" component={Home} />
-        <Route path="/join" component={Join} />
-        <Route path="/login" component={Login} />
-        <ProtectedRoute path="/water-table" component={WaterTable} />
-        <ProtectedRoute path="/identify" component={Identify} />
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      showMenu: false,
+    }
+  }
+  toggleMenu = e => {
+    e.preventDefault()
+    this.setState({ showMenu: !this.state.showMenu })
+  }
+  render() {
+    let { showMenu } = this.state
+    return (
+      <div css={appStyles}>
+        <AuthProvider>
+          <div css={mobileMenuLink} onClick={this.toggleMenu}>
+            {showMenu ? 'close' : 'menu'}
+          </div>
+          <Nav showMenu={showMenu} />
+          <div css={showMenu ? mainContentHide : mainContentShow}>
+            <Route exact path="/" component={Home} />
+            <Route path="/join" component={Join} />
+            <Route path="/login" component={Login} />
+            <ProtectedRoute path="/water-table" component={WaterTable} />
+            <ProtectedRoute path="/identify" component={Identify} />
+          </div>
+        </AuthProvider>
       </div>
-    </AuthProvider>
-  </div>
-)
+    )
+  }
+}
 
 export default withRouter(App)

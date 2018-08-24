@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { navStyles, navLinkStyles, navLogoStyles } from './styles'
+import {
+  navStyles,
+  navHideStyles,
+  navLogoStyles,
+  navShowStyles,
+} from './styles'
 import { AuthConsumer } from '../contexts/AuthContext'
 
 export default class Nav extends Component {
   render() {
+    let { showMenu } = this.props
     return (
       <nav>
         <AuthConsumer>
@@ -17,21 +23,30 @@ export default class Nav extends Component {
               </li>
               {!isAuth && (
                 <li>
-                  <Link to="/join" css={navLinkStyles}>
+                  <Link
+                    to="/join"
+                    css={showMenu ? navShowStyles : navHideStyles}
+                  >
                     join
                   </Link>
                 </li>
               )}
               {!isAuth && (
                 <li>
-                  <Link to="/login" css={navLinkStyles}>
+                  <Link
+                    to="/login"
+                    css={showMenu ? navShowStyles : navHideStyles}
+                  >
                     log in
                   </Link>
                 </li>
               )}
               {isAuth && (
                 <li>
-                  <Link to="/water-table" css={navLinkStyles}>
+                  <Link
+                    to="/water-table"
+                    css={showMenu ? navShowStyles : navHideStyles}
+                  >
                     water table
                   </Link>
                 </li>
@@ -39,7 +54,7 @@ export default class Nav extends Component {
               {isAuth && (
                 <li>
                   <p
-                    css={navLinkStyles}
+                    css={showMenu ? navShowStyles : navHideStyles}
                     onClick={() => {
                       logout()
                     }}

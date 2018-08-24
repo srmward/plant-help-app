@@ -16,12 +16,25 @@ export default css`
 export const mainContentStyles = css`
   width: 90%;
   margin: 0 auto;
-  margin-top: 1rem;
+  margin-top: 2.5rem;
   ${MEDIA.TABLET_UP} {
+    margin-top: 1rem;
     margin-left: 2.5rem;
     width: 100%;
   }
   ${MEDIA.DESKTOP_UP} {
     margin-left: 4rem;
   }
+`
+
+export const mainContentShow = css`
+  ${mainContentStyles};
+  display: block;
+  opacity: 1;
+`
+
+export const mainContentHide = css`
+  ${mainContentStyles};
+  display: none;
+  opacity: 1;
 `

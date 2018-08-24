@@ -14,6 +14,9 @@ export const navStyles = css`
     grid-template-columns: 1fr;
     padding-left: 1rem;
   }
+  ${MEDIA.TABLET_DOWN} {
+    position: fixed;
+  }
 `
 
 export const mobileMenuLink = css`
@@ -30,12 +33,6 @@ export const mobileMenuLink = css`
   }
 `
 
-export const commonNavLinkStyles = css`
-  :visited {
-    color: ${COLORS.PRIMARY};
-  }
-`
-
 export const navLogoStyles = css`
   color: blue;
   position: fixed;
@@ -45,13 +42,27 @@ export const navLogoStyles = css`
 
 export const navLinkStyles = css`
   transition: all 0.1s ${TRANSITION_TIMINGS.FLICKER};
-  display: none;
   cursor: pointer;
-  ${commonNavLinkStyles};
-  ${MEDIA.TABLET_UP} {
-    display: block;
+  :visited {
+    color: ${COLORS.PRIMARY};
   }
   :hover {
     color: ${COLORS.SECONDARY};
+  }
+`
+
+export const navShowStyles = css`
+  ${navLinkStyles};
+  display: block;
+  ${MEDIA.TABLET_DOWN} {
+    margin-top: 2.5rem;
+  }
+`
+
+export const navHideStyles = css`
+  ${navLinkStyles};
+  display: none;
+  ${MEDIA.TABLET_UP} {
+    display: block;
   }
 `
