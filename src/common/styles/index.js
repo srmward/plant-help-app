@@ -23,7 +23,7 @@ export const inputStyles = css`
   padding-left: 8px;
   font-size: 16px;
   border-style: none;
-  border: 1px solid ${COLORS.OFFWHITE};
+  border: none;
 `
 
 export const labelStyles = css`
