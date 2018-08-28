@@ -31,7 +31,10 @@ class App extends Component {
           <div css={mobileMenuLink} onClick={this.toggleMenu}>
             {showMenu ? 'close' : 'menu'}
           </div>
-          <Nav showMenu={showMenu} />
+          <Nav
+            showMenu={showMenu}
+            onClick={() => this.setState({ showMenu: false })}
+          />
           <div css={showMenu ? mainContentHide : mainContentShow}>
             <Route exact path="/" component={Home} />
             <Route path="/join" component={Join} />

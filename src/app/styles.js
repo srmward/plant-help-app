@@ -14,7 +14,7 @@ export default css`
 `
 
 export const mainContentStyles = css`
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   margin-top: 2.5rem;
   ${MEDIA.TABLET_UP} {

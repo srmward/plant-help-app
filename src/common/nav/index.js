@@ -10,14 +10,14 @@ import { AuthConsumer } from '../contexts/AuthContext'
 
 export default class Nav extends Component {
   render() {
-    let { showMenu } = this.props
+    let { showMenu, onClick } = this.props
     return (
       <nav>
         <AuthConsumer>
           {({ isAuth, logout }) => (
             <ul css={navStyles}>
               <li>
-                <Link to="/" css={navLogoStyles}>
+                <Link to="/" css={navLogoStyles} onClick={() => onClick()}>
                   plant help.
                 </Link>
               </li>
@@ -26,6 +26,7 @@ export default class Nav extends Component {
                   <Link
                     to="/join"
                     css={showMenu ? navShowStyles : navHideStyles}
+                    onClick={() => onClick()}
                   >
                     join
                   </Link>
@@ -36,6 +37,7 @@ export default class Nav extends Component {
                   <Link
                     to="/login"
                     css={showMenu ? navShowStyles : navHideStyles}
+                    onClick={() => onClick()}
                   >
                     log in
                   </Link>
@@ -46,6 +48,7 @@ export default class Nav extends Component {
                   <Link
                     to="/water-table"
                     css={showMenu ? navShowStyles : navHideStyles}
+                    onClick={() => onClick()}
                   >
                     water table
                   </Link>
