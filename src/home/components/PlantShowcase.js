@@ -1,11 +1,16 @@
 import React from 'react'
-import { cardImageStyles, cardTitleStyles, cardGraphStyles } from './styles'
+import {
+  cardImageStyles,
+  cardTitleStyles,
+  cardGraphStyles,
+  cardImageContainerStyles,
+} from './styles'
 import AddToCollectionButton from '../../common/ctas/AddToCollectionButton'
 import Cookies from 'js-cookie'
 import { AuthConsumer } from '../../common/contexts/AuthContext'
 
 export default ({ data }) => (
-  <div>
+  <div css={cardImageContainerStyles}>
     <p css={cardTitleStyles}>{data.name}</p>
     <img
       src={data.images.length ? data.images[0].url : ''}

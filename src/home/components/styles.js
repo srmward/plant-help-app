@@ -1,5 +1,5 @@
 import { css } from 'emotion'
-import { COLORS } from '../../theme'
+import { COLORS, MEDIA } from '../../theme'
 
 const MARGIN_SIZE = '80px'
 
@@ -11,16 +11,26 @@ export const baseStyles = css`
   color: ${COLORS.PRIMARY};
 `
 
-export const cardStyles = css`
-  flex: 0 0 auto;
-  max-width: ${MAX_WIDTH_DESKTOP};
-  margin: 50px ${MARGIN_SIZE};
+export const cardImageContainerStyles = css`
+  max-width: 100%;
 `
+
+export const cardStyles = css`
+  ${cardImageContainerStyles};
+  ${MEDIA.TABLET_UP} {
+    flex: 0 0 auto;
+    max-width: ${MAX_WIDTH_DESKTOP};
+    margin: 50px ${MARGIN_SIZE};
+  }
+`
+
 export const plantCardWrapperStyles = css`
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  ${MEDIA.TABLET_UP} {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 `
 
 export const cardTitleStyles = css`
@@ -28,8 +38,11 @@ export const cardTitleStyles = css`
 `
 
 export const cardImageStyles = css`
-  max-width: ${MAX_WIDTH_DESKTOP};
-  margin-bottom: ${MARGIN_BOTTOM / 2};
+  max-width: 100%;
+  ${MEDIA.TABLET_UP} {
+    max-width: ${MAX_WIDTH_DESKTOP};
+    margin-bottom: ${MARGIN_BOTTOM / 2};
+  }
 `
 
 export const cardGraphStyles = css`
