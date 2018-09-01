@@ -18,7 +18,8 @@
     "react-dom": "^16.4.0",
     "react-emotion": "^9.2.4",
     "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "serve": "^10.0.0"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",
@@ -26,6 +27,7 @@
   },
   "scripts": {
     "start": "parcel index.html",
+    "now-start": "serve --single ./dist",
     "build": "parcel build index.html",
     "deploy": "parcel build index.html && cd dist && now"
   }
