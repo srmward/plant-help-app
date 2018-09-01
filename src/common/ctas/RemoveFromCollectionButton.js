@@ -16,6 +16,12 @@ export default class RemoveFromCollectionButton extends Component {
   constructor(props) {
     super(props)
   }
+
+  handleData = () => {
+    alert('plant removed from collection')
+    window.location.reload()
+  }
+
   render() {
     return (
       <Mutation mutation={REMOVE_PLANT_FROM_COLLECTION}>
@@ -24,7 +30,7 @@ export default class RemoveFromCollectionButton extends Component {
             error && alert('error')
           }
           {
-            data && alert('plant removed')
+            data && this.handleData()
           }
           return (
             <button

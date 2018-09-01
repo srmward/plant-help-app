@@ -16,6 +16,11 @@ export default class AddToCollectionButton extends Component {
   constructor(props) {
     super(props)
   }
+
+  handleData = () => {
+    alert('plant added to collection')
+  }
+
   render() {
     return (
       <Mutation mutation={ADD_PLANT_TO_COLLECTION}>
@@ -24,19 +29,19 @@ export default class AddToCollectionButton extends Component {
             error && alert('error')
           }
           {
-            data && alert('plant added')
+            data && this.handleData()
           }
           return (
             <button
               css={primaryCTAStyles}
-              onClick={() =>
+              onClick={() => {
                 updateUser({
                   variables: {
                     email: this.props.email,
                     plantName: this.props.plantName,
                   },
                 })
-              }
+              }}
             >
               add to collection
             </button>

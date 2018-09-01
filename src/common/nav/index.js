@@ -45,13 +45,12 @@ export default class Nav extends Component {
               )}
               {isAuth && (
                 <li>
-                  <Link
-                    to="/water-table"
+                  <p
                     css={showMenu ? navShowStyles : navHideStyles}
-                    onClick={() => onClick()}
+                    onClick={() => (window.location.href = '/water-table')}
                   >
                     water table
-                  </Link>
+                  </p>
                 </li>
               )}
               {isAuth && (
