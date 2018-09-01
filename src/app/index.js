@@ -11,6 +11,7 @@ import appStyles, { mainContentHide, mainContentShow } from './styles'
 import { mobileMenuLink } from '../common/nav/styles'
 import { AuthProvider } from '../common/contexts/AuthContext'
 import ProtectedRoute from '../common/ProtectedRoute'
+import AboutModal from '../about'
 
 class App extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class App extends Component {
             <ProtectedRoute path="/identify" component={Identify} />
           </div>
         </AuthProvider>
+        <AboutModal />
       </div>
     )
   }
