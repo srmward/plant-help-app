@@ -1,5 +1,5 @@
 import { css } from 'emotion'
-import { MEDIA, COLORS } from '../../theme'
+import { MEDIA, COLORS, LAYOUT_STYLES } from '../../theme'
 
 export const headingStyles = css`
   margin-bottom: 45px;
@@ -9,12 +9,7 @@ export const headingStyles = css`
 export const formStyles = css`
   display: flex;
   flex-direction: column;
-  ${MEDIA.TABLET_UP} {
-    max-width: 35rem;
-  }
-  ${MEDIA.DESKTOP_UP} {
-    max-width: 42rem;
-  }
+  ${LAYOUT_STYLES};
 `
 
 export const inputStyles = css`

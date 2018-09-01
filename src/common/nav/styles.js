@@ -1,11 +1,12 @@
 import { css } from 'emotion'
-import { COLORS, MEDIA, TRANSITION_TIMINGS } from '../../theme'
+import { COLORS, MEDIA, TRANSITION_TIMINGS, FADEIN, FADEOUT } from '../../theme'
 
 export const navStyles = css`
   color: ${COLORS.PRIMARY};
   display: grid;
   font-weight: bold;
   list-style-type: none;
+  text-decoration: none;
   grid-auto-flow: row;
   ${MEDIA.TABLET_UP} {
     position: fixed;
@@ -37,7 +38,7 @@ export const navLogoStyles = css`
   color: blue;
   position: fixed;
   transition: all 0.1s ${TRANSITION_TIMINGS.FLICKER};
-  display: block;
+  transform-origin: center bottom;
 `
 
 export const navLinkStyles = css`
@@ -54,8 +55,10 @@ export const navLinkStyles = css`
 export const navShowStyles = css`
   ${navLinkStyles};
   display: block;
+  font-size: 2.5rem;
+  animation: ${FADEIN} 0.5s ${TRANSITION_TIMINGS.CUBIC} forwards;
   ${MEDIA.TABLET_DOWN} {
-    margin-top: 2.5rem;
+    margin-top: 7rem;
   }
 `
 
