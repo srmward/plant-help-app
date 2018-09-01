@@ -19,7 +19,7 @@ export default class RemoveFromCollectionButton extends Component {
 
   handleData = () => {
     alert('plant removed from collection')
-    window.location.reload()
+    setTimeout(() => window.location.reload(), 5000)
   }
 
   render() {
@@ -36,7 +36,6 @@ export default class RemoveFromCollectionButton extends Component {
             <button
               css={secondaryCTAStyles}
               onClick={() => {
-                console.log(this.props.plantName)
                 removeUserPlant({
                   variables: {
                     email: this.props.email,

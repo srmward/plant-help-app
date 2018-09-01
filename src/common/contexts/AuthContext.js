@@ -23,7 +23,6 @@ class AuthProvider extends Component {
   }
 
   logout = () => {
-    this.setState({ isAuth: false })
     Cookies.remove('userId')
     Cookies.remove('email')
     window.location.href = '/'

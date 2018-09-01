@@ -1,5 +1,5 @@
 import ApolloClient from 'apollo-boost'
 
 export const client = new ApolloClient({
-  uri: 'https://plant-help-graphql-sitnmvyqcc.now.sh',
+  uri: 'https://plant-help-graphql-aaskuyjqyk.now.sh/',
 })
