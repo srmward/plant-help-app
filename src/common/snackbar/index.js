@@ -9,8 +9,15 @@ export default class Snackbar extends Component {
     }
   }
   componentDidMount() {
-    //setTimeout(() => this.setState({ showSnackbar: false }), 5000)
+    setTimeout(() => this.setState({ showSnackbar: false }), 3000)
   }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.msg !== prevProps.msg) {
+      this.setState({ showSnackbar: true })
+    }
+  }
+
   handleCloseClick = e => {
     e.preventDefault()
     this.setState({ showSnackbar: false })
