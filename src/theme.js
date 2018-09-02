@@ -41,6 +41,7 @@ export const LAYOUT_STYLES = css`
   ${MEDIA.DESKTOP_UP} {
     max-width: 42rem;
   }
+  margin-bottom: 5rem;
 `
 
 export const TRANSITION_TIMINGS = {

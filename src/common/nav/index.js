@@ -55,6 +55,17 @@ export default class Nav extends Component {
               )}
               {isAuth && (
                 <li>
+                  <Link
+                    to="/identify"
+                    css={showMenu ? navShowStyles : navHideStyles}
+                    onClick={() => onClick()}
+                  >
+                    identify
+                  </Link>
+                </li>
+              )}
+              {isAuth && (
+                <li>
                   <p
                     css={showMenu ? navShowStyles : navHideStyles}
                     onClick={() => {
