@@ -12,6 +12,11 @@ export default css`
   }
 `
 
+export const ghStyles = css`
+  width: 24px;
+  margin-right: 0.5rem;
+`
+
 export const modalStyles = css`
   z-index: 1000;
   background: red;
@@ -20,9 +25,15 @@ export const modalStyles = css`
   height: 100%;
   position: fixed;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   align-content: center;
   cursor: not-allowed;
   text-align: center;
+`
+
+export const srcContainerStyles = css`
+  display: flex;
+  align-items: center;
 `
