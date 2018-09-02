@@ -10,7 +10,7 @@ export default ({ handleAboutDisplay }) => (
     <p>&copy; sward 2018</p>
     <div css={srcContainerStyles}>
       <img css={ghStyles} src={gh} />
-      <a href="https://github.co/srmward/plant-help-app" target="_blank">
+      <a href="https://github.com/srmward/plant-help-app" target="_blank">
         source
       </a>
     </div>
