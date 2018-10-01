@@ -5,10 +5,11 @@ import { identifyContentStyles } from './styles'
 
 export default () => (
   <div>
-    <h1 css={headingStyles}>identify (broken page)</h1>
+    <h1 css={headingStyles}>identify</h1>
     <p css={identifyContentStyles}>coming soon.</p>
     <p css={identifyContentStyles}>
-      enter your email below to receive updates when the feature is released.
+      enter your email below to receive updates when the feature is released
+      (Holiday 2018).
     </p>
     <EmailForm />
   </div>
