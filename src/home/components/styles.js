@@ -1,5 +1,5 @@
 import { css } from 'emotion'
-import { COLORS, MEDIA } from '../../theme'
+import { COLORS, MEDIA, TRANSITION_TIMINGS } from '../../theme'
 
 const MARGIN_SIZE = '80px'
 
@@ -13,6 +13,7 @@ export const baseStyles = css`
 
 export const cardImageContainerStyles = css`
   max-width: 100%;
+  margin-bottom: 4rem;
 `
 
 export const cardStyles = css`
@@ -39,6 +40,7 @@ export const cardTitleStyles = css`
 
 export const cardImageStyles = css`
   max-width: 100%;
+  margin-bottom: 1rem;
   ${MEDIA.TABLET_UP} {
     max-width: ${MAX_WIDTH_DESKTOP};
     margin-bottom: ${MARGIN_BOTTOM / 2};
@@ -47,4 +49,39 @@ export const cardImageStyles = css`
 
 export const cardGraphStyles = css`
   line-height: 2rem;
+  ${MEDIA.TABLET_DOWN} {
+    display: none;
+  }
+`
+
+export const cardGraphMobileActive = css`
+  margin-top: 0;
+  ${cardGraphStyles};
+  ${MEDIA.TABLET_DOWN} {
+    line-height: 1.4rem;
+    font-size: 0.8rem;
+    display: block;
+  }
+`
+
+export const mobileExpandButtonStyles = css`
+  font-size: 0.7rem;
+  display: inline-block;
+  transition: all 0.1s ${TRANSITION_TIMINGS.FLICKER};
+  padding: 0.25rem 1rem;
+  border: 1px solid;
+  cursor: pointer;
+  outline: 0;
+  :active {
+    transform: translateY(0.1rem);
+  }
+  border-color: ${COLORS.ACCENT};
+  color: ${COLORS.ACCENT};
+  :hover {
+    border-color: ${COLORS.ACCENT_HIGHLIGHT};
+    color: ${COLORS.ACCENT_HIGHLIGHT};
+  }
+  ${MEDIA.TABLET_UP} {
+    display: none;
+  }
 `
