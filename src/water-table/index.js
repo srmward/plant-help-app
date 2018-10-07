@@ -4,8 +4,16 @@ import gql from 'graphql-tag'
 import { AuthConsumer } from '../common/contexts/AuthContext'
 import RemoveFromCollectionButton from '../common/ctas/RemoveFromCollectionButton'
 import Cookies from 'js-cookie'
-import { waterTableLayoutStyles, waterTableHeadlineStyles } from './styles'
+import {
+  waterTableLayoutStyles,
+  waterTableHeadlineStyles,
+  waterTableImageStyles,
+  waterTableDataText,
+  waterTableDataContainerStyles,
+} from './styles'
 
+// TODO Handle display of images based on request, build query that allows fetching of user
+// data with image size arg
 export default () => (
   <div>
     <AuthConsumer>
@@ -18,6 +26,10 @@ export default () => (
                   name
                   plants {
                     name
+                    images {
+                      url
+                      size
+                    }
                     exposure
                     repot
                     frequency
@@ -37,11 +49,21 @@ export default () => (
                   {data.users[0].plants.length ? (
                     <div>
                       {data.users[0].plants.map((p, i) => (
-                        <div key={i}>
+                        <div key={i} css={waterTableDataContainerStyles}>
                           <h4>{p.name}</h4>
-                          <p>light exposure: {p.exposure}</p>
-                          <p>water frequency: {p.frequency}</p>
-                          {p.repot && <p>repot: {p.repot}</p>}
+                          <img
+                            css={waterTableImageStyles}
+                            src={p.images[0].url}
+                          />
+                          <p css={waterTableDataText}>
+                            light exposure: {p.exposure}
+                          </p>
+                          <p css={waterTableDataText}>
+                            water frequency: {p.frequency}
+                          </p>
+                          {p.repot && (
+                            <p css={waterTableDataText}>repot: {p.repot}</p>
+                          )}
                           <RemoveFromCollectionButton
                             email={Cookies.get('email')}
                             plantName={p.name}
