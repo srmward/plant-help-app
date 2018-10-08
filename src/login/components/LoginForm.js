@@ -9,12 +9,26 @@ import {
   headingStyles,
   errorStyles,
   labelStyles,
+  orStyles,
+  fbButtonStyles,
 } from '../../common/styles'
 import { LAYOUT_STYLES } from '../../theme'
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import Cookies from 'js-cookie'
 
 const LOG_IN = gql`
-  mutation login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
+  mutation login(
+    $email: String!
+    $password: String
+    $name: String
+    $fbUserId: String
+  ) {
+    login(
+      email: $email
+      password: $password
+      name: $name
+      fbUserId: $fbUserId
+    ) {
       token
       user {
         id
@@ -32,6 +46,18 @@ class LoginForm extends Component {
       email: '',
       password: '',
     }
+  }
+
+  responseFacebook = ({ email, name, id }, cb) => {
+    if (!email) return
+    let fbUser = {
+      variables: {
+        email,
+        name,
+        fbUserId: id,
+      },
+    }
+    return cb(fbUser)
   }
 
   handleChange = e => {
@@ -89,6 +115,18 @@ class LoginForm extends Component {
                     <button css={buttonStyles} type="submit">
                       log in
                     </button>
+                    <div css={orStyles}>or</div>
+                    <FacebookLogin
+                      appId={process.env.REACT_APP_FACEBOOK_APP_ID}
+                      autoLoad={true}
+                      fields="name,email,picture"
+                      callback={r => this.responseFacebook(r, login)}
+                      render={renderProps => (
+                        <div css={fbButtonStyles} onClick={renderProps.onClick}>
+                          f | continue with facebook
+                        </div>
+                      )}
+                    />
                     {data && handleAuth(data)}
                   </form>
                 )

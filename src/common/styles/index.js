@@ -40,3 +40,32 @@ export const buttonStyles = css`
 export const errorStyles = css`
   color: ${COLORS.ERROR_RED};
 `
+
+export const fbButtonStyles = css`
+  background: none;
+  border: none;
+  margin: 0;
+  width: 100%;
+  cursor: pointer;
+  background: white;
+  border: 1px solid #3b5998;
+  text-align: center;
+  padding: 20px 0px;
+  color: #3b5998;
+  font-size: 0.8rem;
+  :active {
+    transform: translateY(0.1rem);
+  }
+  :hover {
+    text-decoration: underline;
+  }
+`
+
+export const orStyles = css`
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  font-size: 0.7rem;
+  color: ${COLORS.SECONDARY};
+`

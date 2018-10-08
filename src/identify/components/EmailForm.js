@@ -19,6 +19,7 @@ export default class EmailForm extends Component {
     super(props)
     this.state = {
       email: '',
+      submitted: false,
     }
   }
   handleChange = e => {
@@ -58,7 +59,11 @@ export default class EmailForm extends Component {
                   onChange={this.handleChange}
                   required
                 />
-                <button css={buttonStyles} type="submit">
+                <button
+                  css={buttonStyles}
+                  type="submit"
+                  onClick={() => this.setState({ submitted: true })}
+                >
                   email me
                 </button>
               </form>
