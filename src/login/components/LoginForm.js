@@ -119,6 +119,7 @@ class LoginForm extends Component {
                     <FacebookLogin
                       appId={process.env.REACT_APP_FACEBOOK_APP_ID}
                       autoLoad={true}
+                      disableMobileRedirect={true}
                       fields="name,email,picture"
                       callback={r => this.responseFacebook(r, login)}
                       render={renderProps => (
