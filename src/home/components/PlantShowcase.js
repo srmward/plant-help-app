@@ -12,11 +12,8 @@ import Cookies from 'js-cookie'
 import { AuthConsumer } from '../../common/contexts/AuthContext'
 
 export default class PlantShowcase extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      mobileShowGraph: false,
-    }
+  state = {
+    mobileShowGraph: false,
   }
   toggleText = () =>
     this.setState({ mobileShowGraph: !this.state.mobileShowGraph })

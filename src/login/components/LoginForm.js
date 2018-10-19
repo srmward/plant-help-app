@@ -40,12 +40,9 @@ const LOG_IN = gql`
 `
 
 class LoginForm extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      email: '',
-      password: '',
-    }
+  state = {
+    email: '',
+    password: '',
   }
 
   responseFacebook = ({ email, name, id }, cb) => {

@@ -14,11 +14,8 @@ import ProtectedRoute from '../common/ProtectedRoute'
 import AboutModal from '../about'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showMenu: false,
-    }
+  state = {
+    showMenu: false,
   }
   toggleMenu = e => {
     e.preventDefault()

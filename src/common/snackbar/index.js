@@ -2,12 +2,10 @@ import React, { Component } from 'react'
 import { showSnackbarStyles, hideSnackbarStyles, closeStyles } from './styles'
 
 export default class Snackbar extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showSnackbar: true,
-    }
+  state = {
+    showSnackbar: true,
   }
+
   componentDidMount() {
     setTimeout(() => this.setState({ showSnackbar: false }), 3000)
   }

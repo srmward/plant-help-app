@@ -14,9 +14,6 @@ const ADD_PLANT_TO_COLLECTION = gql`
 `
 
 export default class AddToCollectionButton extends Component {
-  constructor(props) {
-    super(props)
-  }
   render() {
     return (
       <Mutation mutation={ADD_PLANT_TO_COLLECTION}>

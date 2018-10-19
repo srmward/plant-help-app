@@ -3,11 +3,8 @@ import AboutButton from './components/AboutButton'
 import AboutModal from './components/AboutModal'
 
 export default class About extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      showAbout: false,
-    }
+  state = {
+    showAbout: false,
   }
 
   handleAboutDisplay = () => this.setState({ showAbout: !this.state.showAbout })

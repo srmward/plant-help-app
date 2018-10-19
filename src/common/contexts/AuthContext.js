@@ -4,12 +4,9 @@ import Cookies from 'js-cookie'
 const AuthContext = React.createContext()
 
 class AuthProvider extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isAuth: Cookies.get('userId') || false,
-      email: Cookies.get('email') || false,
-    }
+  state = {
+    isAuth: Cookies.get('userId') || false,
+    email: Cookies.get('email') || false,
   }
 
   handleAuth = ({ login, signup }) => {

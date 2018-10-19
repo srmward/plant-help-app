@@ -14,10 +14,6 @@ const REMOVE_PLANT_FROM_COLLECTION = gql`
 `
 
 export default class RemoveFromCollectionButton extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return (
       <Mutation mutation={REMOVE_PLANT_FROM_COLLECTION}>

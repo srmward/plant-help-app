@@ -15,12 +15,9 @@ const SUBSCRIBE_USER_TO_NEWSLETTER = gql`
   }
 `
 export default class EmailForm extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      email: '',
-      submitted: false,
-    }
+  state = {
+    email: '',
+    submitted: false,
   }
   handleChange = e => {
     let newState = {}

@@ -39,13 +39,10 @@ const SIGN_UP = gql`
 `
 
 class JoinForm extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      name: '',
-      email: '',
-      password: '',
-    }
+  state = {
+    name: '',
+    email: '',
+    password: '',
   }
 
   responseFacebook = ({ email, name, id }, cb) => {
