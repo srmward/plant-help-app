@@ -8,11 +8,13 @@ import {
   formStyles,
   inputStyles,
   buttonStyles,
+  buttonLoadingStyles,
   headingStyles,
   labelStyles,
   errorStyles,
   orStyles,
   fbButtonStyles,
+  fbButtonLoadingStyles,
 } from '../../common/styles'
 
 const SIGN_UP = gql`
@@ -43,6 +45,7 @@ class JoinForm extends Component {
     name: '',
     email: '',
     password: '',
+    isLoading: false,
   }
 
   responseFacebook = ({ email, name, id }, cb) => {
@@ -64,6 +67,7 @@ class JoinForm extends Component {
   }
 
   render() {
+    let { isLoading } = this.state
     return (
       <Mutation mutation={SIGN_UP}>
         {(signup, { data, error }) => (
@@ -76,6 +80,8 @@ class JoinForm extends Component {
                     css={formStyles}
                     onSubmit={e => {
                       e.preventDefault()
+                      this.setState({ isLoading: true })
+                      error = false
                       signup({
                         variables: this.state,
                       })
@@ -108,8 +114,13 @@ class JoinForm extends Component {
                       onChange={this.handleChange}
                       required
                     />
-                    <button css={buttonStyles} type="submit">
-                      sign up
+                    <button
+                      css={
+                        isLoading && !error ? buttonLoadingStyles : buttonStyles
+                      }
+                      type="submit"
+                    >
+                      {isLoading && !error ? 'loading ...' : 'sign up'}
                     </button>
                     <div css={orStyles}>or</div>
                     <FacebookLogin
@@ -119,8 +130,21 @@ class JoinForm extends Component {
                       fields="name,email,picture"
                       callback={r => this.responseFacebook(r, signup)}
                       render={renderProps => (
-                        <div css={fbButtonStyles} onClick={renderProps.onClick}>
-                          f | continue with facebook
+                        <div
+                          css={
+                            isLoading && !error
+                              ? fbButtonLoadingStyles
+                              : fbButtonStyles
+                          }
+                          onClick={() => {
+                            this.setState({ isLoading: true })
+                            error = false
+                            return renderProps.onClick
+                          }}
+                        >
+                          {isLoading && !error
+                            ? 'loading ...'
+                            : 'f | continue with facebook'}
                         </div>
                       )}
                     />

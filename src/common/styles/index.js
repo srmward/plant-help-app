@@ -28,6 +28,7 @@ export const labelStyles = css`
 
 export const buttonStyles = css`
   height: 4rem;
+  outline: 0;
   margin-top: 20px;
   background: white;
   border: 2px solid ${COLORS.PASTEL_BLUE};
@@ -37,11 +38,22 @@ export const buttonStyles = css`
   cursor: pointer;
 `
 
+export const buttonLoadingStyles = css`
+  ${buttonStyles};
+  border: 2px solid ${COLORS.DISABLED_COLOR};
+  color: ${COLORS.DISABLED_COLOR};
+  cursor: default;
+  :hover {
+    text-decoration: none;
+  }
+`
+
 export const errorStyles = css`
   color: ${COLORS.ERROR_RED};
 `
 
 export const fbButtonStyles = css`
+  outline: 0;
   background: none;
   border: none;
   margin: 0;
@@ -58,6 +70,16 @@ export const fbButtonStyles = css`
   }
   :hover {
     text-decoration: underline;
+  }
+`
+
+export const fbButtonLoadingStyles = css`
+  ${fbButtonStyles};
+  border: 2px solid ${COLORS.DISABLED_COLOR};
+  color: ${COLORS.DISABLED_COLOR};
+  cursor: default;
+  :hover {
+    text-decoration: none;
   }
 `
 
