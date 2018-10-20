@@ -76,80 +76,85 @@ class JoinForm extends Component {
             <AuthConsumer>
               {({ handleAuth }) => {
                 return (
-                  <form
-                    css={formStyles}
-                    onSubmit={e => {
-                      e.preventDefault()
-                      this.setState({ isLoading: true })
-                      error = false
-                      signup({
-                        variables: this.state,
-                      })
-                    }}
-                  >
-                    {error && (
-                      <p css={errorStyles}>
-                        Invalid Credentials. Please try again.
-                      </p>
-                    )}
-                    <label css={labelStyles}>name</label>
-                    <input
-                      css={inputStyles}
-                      name="name"
-                      onChange={this.handleChange}
-                      required
-                    />
-                    <label css={labelStyles}>email</label>
-                    <input
-                      css={inputStyles}
-                      name="email"
-                      onChange={this.handleChange}
-                      required
-                    />
-                    <label css={labelStyles}>password</label>
-                    <input
-                      css={inputStyles}
-                      type="password"
-                      name="password"
-                      onChange={this.handleChange}
-                      required
-                    />
-                    <button
-                      css={
-                        isLoading && !error ? buttonLoadingStyles : buttonStyles
-                      }
-                      type="submit"
+                  <div>
+                    <p css={errorStyles}>
+                      {error ? 'Invalid Credentials. Please try again.' : ''}
+                    </p>
+                    <form
+                      css={formStyles}
+                      onSubmit={e => {
+                        e.preventDefault()
+                        this.setState({ isLoading: true })
+                        error = false
+                        signup({
+                          variables: this.state,
+                        })
+                      }}
                     >
-                      {isLoading && !error ? 'loading ...' : 'sign up'}
-                    </button>
-                    <div css={orStyles}>or</div>
-                    <FacebookLogin
-                      appId={process.env.REACT_APP_FACEBOOK_APP_ID}
-                      autoLoad={true}
-                      disableMobileRedirect={true}
-                      fields="name,email,picture"
-                      callback={r => this.responseFacebook(r, signup)}
-                      render={renderProps => (
-                        <div
-                          css={
-                            isLoading && !error
-                              ? fbButtonLoadingStyles
-                              : fbButtonStyles
-                          }
-                          onClick={() => {
-                            this.setState({ isLoading: true })
-                            error = false
-                            return renderProps.onClick
-                          }}
-                        >
-                          {isLoading && !error
-                            ? 'loading ...'
-                            : 'f | continue with facebook'}
-                        </div>
-                      )}
-                    />
-                    {data && handleAuth(data)}
-                  </form>
+                      <label css={labelStyles}>name</label>
+                      <input
+                        css={inputStyles}
+                        disabled={isLoading && !error}
+                        name="name"
+                        onChange={this.handleChange}
+                        required
+                      />
+                      <label css={labelStyles}>email</label>
+                      <input
+                        css={inputStyles}
+                        disabled={isLoading && !error}
+                        name="email"
+                        onChange={this.handleChange}
+                        required
+                      />
+                      <label css={labelStyles}>password</label>
+                      <input
+                        css={inputStyles}
+                        disabled={isLoading && !error}
+                        type="password"
+                        name="password"
+                        onChange={this.handleChange}
+                        required
+                      />
+                      <button
+                        css={
+                          isLoading && !error
+                            ? buttonLoadingStyles
+                            : buttonStyles
+                        }
+                        type="submit"
+                      >
+                        {isLoading && !error ? 'loading ...' : 'sign up'}
+                      </button>
+                      <div css={orStyles}>or</div>
+                      <FacebookLogin
+                        appId={process.env.REACT_APP_FACEBOOK_APP_ID}
+                        autoLoad={true}
+                        disableMobileRedirect={true}
+                        fields="name,email,picture"
+                        callback={r => this.responseFacebook(r, signup)}
+                        render={renderProps => (
+                          <div
+                            css={
+                              isLoading && !error
+                                ? fbButtonLoadingStyles
+                                : fbButtonStyles
+                            }
+                            onClick={() => {
+                              this.setState({ isLoading: true })
+                              error = false
+                              return renderProps.onClick
+                            }}
+                          >
+                            {isLoading && !error
+                              ? 'loading ...'
+                              : 'f | continue with facebook'}
+                          </div>
+                        )}
+                      />
+                      {data && handleAuth(data)}
+                    </form>
+                  </div>
                 )
               }}
             </AuthConsumer>

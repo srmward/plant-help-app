@@ -10,6 +10,7 @@ export const COLORS = {
   ERROR_RED: '#F06449',
   ERROR_HIGHLIGHT: '#DB162F',
   DISABLED_COLOR: '#CDCDCD',
+  DISABLED_BG_COLOR: '#FAFAFA',
 }
 
 export const MEDIA = {

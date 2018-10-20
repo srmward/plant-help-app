@@ -63,6 +63,7 @@ export default class EmailForm extends Component {
                   <input
                     css={inputStyles}
                     name="email"
+                    disabled={isLoading && !error}
                     value={this.state.email}
                     onChange={this.handleChange}
                     required

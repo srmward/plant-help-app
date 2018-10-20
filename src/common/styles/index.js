@@ -2,7 +2,7 @@ import { css } from 'emotion'
 import { MEDIA, COLORS, LAYOUT_STYLES } from '../../theme'
 
 export const headingStyles = css`
-  margin-bottom: 45px;
+  margin-bottom: 1rem;
   color: ${COLORS.PRIMARY};
 `
 
@@ -13,12 +13,25 @@ export const formStyles = css`
 `
 
 export const inputStyles = css`
+  background: #ffffff;
   height: 3rem;
   margin-bottom: 30px;
   padding-left: 8px;
   font-size: 16px;
   border-style: none;
   border: none;
+  :-webkit-autofill,
+  :-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 100px white inset;
+  }
+  :disabled {
+    color: ${COLORS.DISABLED_COLOR};
+    background: ${COLORS.DISABLED_BG_COLOR};
+  }
+  :-webkit-autofill:disabled {
+    -webkit-text-fill-color: ${COLORS.DISABLED_COLOR};
+    -webkit-background-color: ${COLORS.DISABLED_BG_COLOR};
+  }
 `
 
 export const labelStyles = css`
@@ -28,6 +41,8 @@ export const labelStyles = css`
 
 export const buttonStyles = css`
   height: 4rem;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.8rem;
   outline: 0;
   margin-top: 20px;
   background: white;
@@ -50,6 +65,7 @@ export const buttonLoadingStyles = css`
 
 export const errorStyles = css`
   color: ${COLORS.ERROR_RED};
+  min-height: 1.2rem;
 `
 
 export const fbButtonStyles = css`

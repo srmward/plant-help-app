@@ -77,79 +77,83 @@ class LoginForm extends Component {
             <AuthConsumer>
               {({ handleAuth }) => {
                 return (
-                  <form
-                    css={formStyles}
-                    onSubmit={e => {
-                      e.preventDefault()
-                      this.setState({ isLoading: true })
-                      error = false
-                      login({
-                        variables: this.state,
-                      })
-                    }}
-                  >
-                    {error && (
-                      <p css={errorStyles}>
-                        Invalid Credentials. Please try again.
-                      </p>
-                    )}
-                    <label css={labelStyles}>email</label>
-                    <input
-                      css={inputStyles}
-                      name="email"
-                      onChange={this.handleChange}
-                      ref={node => {
-                        input = node
+                  <div>
+                    <p css={errorStyles}>
+                      {error ? 'Invalid Credentials. Please try again.' : ''}
+                    </p>
+                    <form
+                      css={formStyles}
+                      onSubmit={e => {
+                        e.preventDefault()
+                        this.setState({ isLoading: true })
+                        error = false
+                        login({
+                          variables: this.state,
+                        })
                       }}
-                      required
-                    />
-                    <label css={labelStyles}>password</label>
-                    <input
-                      css={inputStyles}
-                      type="password"
-                      name="password"
-                      onChange={this.handleChange}
-                      ref={node => {
-                        input = node
-                      }}
-                      required
-                    />
-                    <button
-                      css={
-                        isLoading && !error ? buttonLoadingStyles : buttonStyles
-                      }
-                      type="submit"
                     >
-                      {isLoading && !error ? 'loading ...' : 'log in'}
-                    </button>
-                    <div css={orStyles}>or</div>
-                    <FacebookLogin
-                      appId={process.env.REACT_APP_FACEBOOK_APP_ID}
-                      autoLoad={true}
-                      disableMobileRedirect={true}
-                      fields="name,email,picture"
-                      callback={r => this.responseFacebook(r, login)}
-                      render={renderProps => (
-                        <div
-                          css={
-                            isLoading && !error
-                              ? fbButtonLoadingStyles
-                              : fbButtonStyles
-                          }
-                          onClick={() => {
-                            this.setState({ isLoading: true })
-                            error = false
-                            return renderProps.onClick()
-                          }}
-                        >
-                          {isLoading && !error
-                            ? 'loading...'
-                            : 'f | continue with facebook'}
-                        </div>
-                      )}
-                    />
-                    {data && handleAuth(data)}
-                  </form>
+                      <label css={labelStyles}>email</label>
+                      <input
+                        css={inputStyles}
+                        name="email"
+                        disabled={isLoading && !error}
+                        onChange={this.handleChange}
+                        ref={node => {
+                          input = node
+                        }}
+                        required
+                      />
+                      <label css={labelStyles}>password</label>
+                      <input
+                        css={inputStyles}
+                        type="password"
+                        name="password"
+                        disabled={isLoading && !error}
+                        onChange={this.handleChange}
+                        ref={node => {
+                          input = node
+                        }}
+                        required
+                      />
+                      <button
+                        css={
+                          isLoading && !error
+                            ? buttonLoadingStyles
+                            : buttonStyles
+                        }
+                        type="submit"
+                      >
+                        {isLoading && !error ? 'loading ...' : 'log in'}
+                      </button>
+                      <div css={orStyles}>or</div>
+                      <FacebookLogin
+                        appId={process.env.REACT_APP_FACEBOOK_APP_ID}
+                        autoLoad={true}
+                        disableMobileRedirect={true}
+                        fields="name,email,picture"
+                        callback={r => this.responseFacebook(r, login)}
+                        render={renderProps => (
+                          <div
+                            css={
+                              isLoading && !error
+                                ? fbButtonLoadingStyles
+                                : fbButtonStyles
+                            }
+                            onClick={() => {
+                              this.setState({ isLoading: true })
+                              error = false
+                              return renderProps.onClick()
+                            }}
+                          >
+                            {isLoading && !error
+                              ? 'loading...'
+                              : 'f | continue with facebook'}
+                          </div>
+                        )}
+                      />
+                      {data && handleAuth(data)}
+                    </form>
+                  </div>
                 )
               }}
             </AuthConsumer>
