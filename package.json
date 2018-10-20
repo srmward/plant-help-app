@@ -23,6 +23,7 @@
     "serve": "^10.0.0"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "parcel-bundler": "^1.8.1"
   },
