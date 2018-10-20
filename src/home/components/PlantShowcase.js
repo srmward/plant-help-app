@@ -3,6 +3,7 @@ import {
   cardImageStyles,
   cardTitleStyles,
   cardGraphStyles,
+  showCardGraphStyles,
   mobileExpandButtonStyles,
   cardGraphMobileActive,
   cardImageContainerStyles,
@@ -14,21 +15,32 @@ import { AuthConsumer } from '../../common/contexts/AuthContext'
 export default class PlantShowcase extends Component {
   state = {
     mobileShowGraph: false,
+    desktopShowGraph: false,
   }
   toggleText = () =>
     this.setState({ mobileShowGraph: !this.state.mobileShowGraph })
   render() {
     let { data } = this.props
-    let { mobileShowGraph } = this.state
+    let { mobileShowGraph, desktopShowGraph } = this.state
     return (
       <div css={cardImageContainerStyles}>
         <p css={cardTitleStyles}>{data.name}</p>
         <img
+          onMouseEnter={() => this.setState({ desktopShowGraph: true })}
+          onMouseLeave={() => this.setState({ desktopShowGraph: false })}
           src={data.images.length ? data.images[0].url : ''}
           alt={data.name}
           css={cardImageStyles}
         />
-        <p css={mobileShowGraph ? cardGraphMobileActive : cardGraphStyles}>
+        <p
+          css={
+            mobileShowGraph
+              ? cardGraphMobileActive
+              : desktopShowGraph
+                ? showCardGraphStyles
+                : cardGraphStyles
+          }
+        >
           {data.description}
         </p>
         <div css={mobileExpandButtonStyles} onClick={this.toggleText}>

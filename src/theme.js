@@ -90,13 +90,11 @@ export const FADEUP = keyframes`
 
 export const FADEIN = keyframes`
   0% {
-    transform: translate3d(0,0,0);
     opacity: 0;
     visiblity: hidden;
   }
 
   100% {
-    transform: translate3d(0, 30px, 0);
     opacity: 1;
     visibility: visible;
   }

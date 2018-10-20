@@ -1,5 +1,5 @@
 import { css } from 'emotion'
-import { COLORS, MEDIA, TRANSITION_TIMINGS } from '../../theme'
+import { COLORS, MEDIA, TRANSITION_TIMINGS, FADEIN } from '../../theme'
 
 const MARGIN_SIZE = '80px'
 
@@ -52,6 +52,14 @@ export const cardGraphStyles = css`
   ${MEDIA.TABLET_DOWN} {
     display: none;
   }
+  ${MEDIA.TABLET_UP} {
+    visibility: hidden;
+  }
+`
+
+export const showCardGraphStyles = css`
+  ${cardGraphStyles};
+  animation: ${FADEIN} 0.5s ${TRANSITION_TIMINGS.CUBIC} forwards;
 `
 
 export const cardGraphMobileActive = css`
