@@ -4,6 +4,7 @@ import {
   cardTitleStyles,
   cardGraphStyles,
   showCardGraphStyles,
+  cardTitleShowStyles,
   mobileExpandButtonStyles,
   cardGraphMobileActive,
   cardImageContainerStyles,
@@ -24,7 +25,9 @@ export default class PlantShowcase extends Component {
     let { mobileShowGraph, desktopShowGraph } = this.state
     return (
       <div css={cardImageContainerStyles}>
-        <p css={cardTitleStyles}>{data.name}</p>
+        <p css={desktopShowGraph ? cardTitleShowStyles : cardTitleStyles}>
+          {data.name}
+        </p>
         <img
           onMouseEnter={() => this.setState({ desktopShowGraph: true })}
           onMouseLeave={() => this.setState({ desktopShowGraph: false })}

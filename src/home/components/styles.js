@@ -7,6 +7,8 @@ const MARGIN_BOTTOM = '1.5rem'
 
 const MAX_WIDTH_DESKTOP = '750px'
 
+const MAX_HEIGHT_DESKTOP = '420px'
+
 export const baseStyles = css`
   color: ${COLORS.PRIMARY};
 `
@@ -36,6 +38,14 @@ export const plantCardWrapperStyles = css`
 
 export const cardTitleStyles = css`
   margin-bottom: ${MARGIN_BOTTOM};
+  ${MEDIA.TABLET_UP} {
+    visibility: hidden;
+  }
+`
+
+export const cardTitleShowStyles = css`
+  ${cardTitleStyles};
+  animation: ${FADEIN} 0.5s ${TRANSITION_TIMINGS.CUBIC} forwards;
 `
 
 export const cardImageStyles = css`
