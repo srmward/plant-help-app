@@ -1,9 +1,16 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { baseStyles, plantCardWrapperStyles, cardStyles } from './styles'
+import {
+  baseStyles,
+  plantCardWrapperStyles,
+  cardStyles,
+  signUpButtonStyles,
+  testStyles,
+} from './styles'
 import gql from 'graphql-tag'
 import PlantShowcase from './PlantShowcase'
 import { AuthConsumer } from '../../common/contexts/AuthContext'
+import JoinButton from '../../common/ctas/JoinButton'
 
 //TODO: Grab image as proper size
 export default () => (
@@ -38,7 +45,14 @@ export default () => (
       return (
         <AuthConsumer>
           {({ isAuth }) => (
-            <div css={plantCardWrapperStyles}>{mapPlantData(isAuth)}</div>
+            <div css={plantCardWrapperStyles}>
+              {mapPlantData(isAuth)}{' '}
+              {!isAuth && (
+                <div css={signUpButtonStyles}>
+                  <JoinButton css={testStyles} />
+                </div>
+              )}
+            </div>
           )}
         </AuthConsumer>
       )

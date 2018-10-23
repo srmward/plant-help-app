@@ -7,8 +7,6 @@ const MARGIN_BOTTOM = '1.5rem'
 
 const MAX_WIDTH_DESKTOP = '750px'
 
-const MAX_HEIGHT_DESKTOP = '420px'
-
 export const baseStyles = css`
   color: ${COLORS.PRIMARY};
 `
@@ -79,6 +77,20 @@ export const cardGraphMobileActive = css`
     line-height: 1.4rem;
     font-size: 0.8rem;
     display: block;
+  }
+`
+
+export const signUpButtonStyles = css`
+  display: flex;
+  justify-content: center;
+  > * {
+    margin-bottom: 10rem;
+  }
+  ${MEDIA.TABLET_UP} {
+    flex-direction: column;
+    > * {
+      margin: -10rem 5rem 0 5rem;
+    }
   }
 `
 

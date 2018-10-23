@@ -107,3 +107,9 @@ export const orStyles = css`
   font-size: 0.7rem;
   color: ${COLORS.SECONDARY};
 `
+
+export const alreadyStyles = css`
+  font-size: 0.8rem;
+  margin: -4rem 0rem 5rem 0rem;
+  color: ${COLORS.SECONDARY};
+`

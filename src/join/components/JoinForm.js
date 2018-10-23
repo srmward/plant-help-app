@@ -3,6 +3,7 @@ import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 import { AuthConsumer } from '../../common/contexts/AuthContext'
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
+import { Link } from 'react-router-dom'
 
 import {
   formStyles,
@@ -14,6 +15,7 @@ import {
   errorStyles,
   orStyles,
   fbButtonStyles,
+  alreadyStyles,
   fbButtonLoadingStyles,
 } from '../../common/styles'
 
@@ -154,6 +156,9 @@ class JoinForm extends Component {
                       />
                       {data && handleAuth(data)}
                     </form>
+                    <p css={alreadyStyles}>
+                      already a member? <Link to="/login">log in</Link>
+                    </p>
                   </div>
                 )
               }}
