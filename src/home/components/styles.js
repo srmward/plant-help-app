@@ -1,5 +1,12 @@
 import { css } from 'emotion'
-import { COLORS, MEDIA, TRANSITION_TIMINGS, FADEIN } from '../../theme'
+import {
+  COLORS,
+  MEDIA,
+  TRANSITION_TIMINGS,
+  FADEIN,
+  FADEOUT,
+  FADEUPANDIN,
+} from '../../theme'
 
 const MARGIN_SIZE = '80px'
 
@@ -43,7 +50,10 @@ export const cardTitleStyles = css`
 
 export const cardTitleShowStyles = css`
   ${cardTitleStyles};
-  animation: ${FADEIN} 0.5s ${TRANSITION_TIMINGS.CUBIC} forwards;
+  ${MEDIA.TABLET_UP} {
+    visibility: hidden;
+    animation: ${FADEIN} 0.5s ${TRANSITION_TIMINGS.CUBIC} forwards;
+  }
 `
 
 export const cardImageStyles = css`
@@ -86,11 +96,9 @@ export const signUpButtonStyles = css`
   > * {
     margin-bottom: 10rem;
   }
+  flex-direction: column;
   ${MEDIA.TABLET_UP} {
-    flex-direction: column;
-    > * {
-      margin: -10rem 5rem 0 5rem;
-    }
+    margin-right: 5rem;
   }
 `
 
@@ -113,5 +121,33 @@ export const mobileExpandButtonStyles = css`
   }
   ${MEDIA.TABLET_UP} {
     display: none;
+  }
+`
+
+export const buttonContainerShowStyles = css`
+  ${MEDIA.TABLET_UP} {
+    animation: ${FADEUPANDIN} 0.5s ${TRANSITION_TIMINGS.CUBIC} forwards;
+    visibility: visible;
+  }
+`
+
+export const buttonContainerHideStyles = css`
+  ${MEDIA.TABLET_UP} {
+    animation: ${FADEOUT} 0.5s ${TRANSITION_TIMINGS.CUBIC} forwards;
+    visibility: hidden;
+  }
+`
+
+export const joinGraph = css`
+  line-height: 1.5rem;
+  color: ${COLORS.PRIMARY};
+  margin: 0;
+  width: 95%;
+  font-size: 0.8rem;
+  ${MEDIA.TABLET_UP} {
+    margin-left: 2rem;
+    font-size: 1rem;
+    margin-top: -10rem;
+    margin-right: 15rem;
   }
 `

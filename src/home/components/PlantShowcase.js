@@ -7,6 +7,8 @@ import {
   cardTitleShowStyles,
   mobileExpandButtonStyles,
   cardGraphMobileActive,
+  buttonContainerShowStyles,
+  buttonContainerHideStyles,
   cardImageContainerStyles,
 } from './styles'
 import AddToCollectionButton from '../../common/ctas/AddToCollectionButton'
@@ -24,13 +26,15 @@ export default class PlantShowcase extends Component {
     let { data } = this.props
     let { mobileShowGraph, desktopShowGraph } = this.state
     return (
-      <div css={cardImageContainerStyles}>
+      <div
+        css={cardImageContainerStyles}
+        onMouseEnter={() => this.setState({ desktopShowGraph: true })}
+        onMouseLeave={() => this.setState({ desktopShowGraph: false })}
+      >
         <p css={desktopShowGraph ? cardTitleShowStyles : cardTitleStyles}>
           {data.name}
         </p>
         <img
-          onMouseEnter={() => this.setState({ desktopShowGraph: true })}
-          onMouseLeave={() => this.setState({ desktopShowGraph: false })}
           src={data.images.length ? data.images[0].url : ''}
           alt={data.name}
           css={cardImageStyles}
@@ -52,10 +56,18 @@ export default class PlantShowcase extends Component {
         <AuthConsumer>
           {({ isAuth }) =>
             isAuth && (
-              <AddToCollectionButton
-                email={Cookies.get('email')}
-                plantName={data.name}
-              />
+              <div
+                css={
+                  desktopShowGraph
+                    ? buttonContainerShowStyles
+                    : buttonContainerHideStyles
+                }
+              >
+                <AddToCollectionButton
+                  email={Cookies.get('email')}
+                  plantName={data.name}
+                />
+              </div>
             )
           }
         </AuthConsumer>

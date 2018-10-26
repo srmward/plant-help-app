@@ -1,5 +1,5 @@
 import { css } from 'emotion'
-import { COLORS, TRANSITION_TIMINGS } from '../../theme'
+import { COLORS, TRANSITION_TIMINGS, MEDIA } from '../../theme'
 
 export const ctaStyles = css`
   transition: all 0.1s ${TRANSITION_TIMINGS.FLICKER};
@@ -29,6 +29,14 @@ color: ${COLORS.ERROR_RED};
 :hover {
   border-color: ${COLORS.ERROR_HIGHLIGHT};
   color: ${COLORS.ERROR_HIGHLIGHT};
-
 }
+`
+
+export const joinButtonStyles = css`
+  ${primaryCTAStyles};
+  text-align: left;
+  margin-top: 2rem;
+  ${MEDIA.TABLET_UP} {
+    margin-left: 2rem;
+  }
 `

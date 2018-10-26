@@ -5,7 +5,7 @@ import {
   plantCardWrapperStyles,
   cardStyles,
   signUpButtonStyles,
-  testStyles,
+  joinGraph,
 } from './styles'
 import gql from 'graphql-tag'
 import PlantShowcase from './PlantShowcase'
@@ -49,7 +49,11 @@ export default () => (
               {mapPlantData(isAuth)}{' '}
               {!isAuth && (
                 <div css={signUpButtonStyles}>
-                  <JoinButton css={testStyles} />
+                  <p css={joinGraph}>
+                    join today to learn more about your collection, access
+                    detailed water tables, and receive custom care guides.
+                  </p>
+                  <JoinButton />
                 </div>
               )}
             </div>
