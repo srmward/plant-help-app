@@ -102,13 +102,11 @@ export const FADEIN = keyframes`
 
 export const FADEOUT = keyframes`
   0% {
-    transform: translate3d(0,30px,0);
     opacity: 1;
     visiblity: visible;
   }
 
   100% {
-    transform: translate3d(0,0, 0);
     opacity: 0;
     visibility: hidden;
   }
