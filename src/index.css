@@ -15,11 +15,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   html {
     overflow-y: hidden;
   }
   body {
     overflow-y: auto;
   }
-}
+} */

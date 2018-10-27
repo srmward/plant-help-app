@@ -17,10 +17,17 @@ class App extends Component {
   state = {
     showMenu: false,
   }
+
   toggleMenu = e => {
     e.preventDefault()
     this.setState({ showMenu: !this.state.showMenu })
   }
+
+  resetWindow = () => {
+    window.scrollTo(0, 0)
+    return null
+  }
+
   render() {
     let { showMenu } = this.state
     return (
@@ -34,6 +41,7 @@ class App extends Component {
             onClick={() => this.setState({ showMenu: false })}
           />
           <div css={showMenu ? mainContentHide : mainContentShow}>
+            <Route path="/" component={this.resetWindow} />
             <Route exact path="/" component={Home} />
             <Route path="/join" component={Join} />
             <Route path="/login" component={Login} />
