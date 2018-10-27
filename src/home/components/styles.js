@@ -77,7 +77,9 @@ export const cardGraphStyles = css`
 
 export const showCardGraphStyles = css`
   ${cardGraphStyles};
-  animation: ${FADEIN} 0.5s ${TRANSITION_TIMINGS.CUBIC} forwards;
+  ${MEDIA.TABLET_UP} {
+    animation: ${FADEIN} 0.5s ${TRANSITION_TIMINGS.CUBIC} forwards;
+  }
 `
 
 export const cardGraphMobileActive = css`
@@ -98,7 +100,15 @@ export const signUpButtonStyles = css`
   }
   flex-direction: column;
   ${MEDIA.TABLET_UP} {
+    animation: ${FADEOUT} 0.25s ${TRANSITION_TIMINGS.CUBIC} forwards;
     margin-right: 5rem;
+  }
+`
+
+export const signUpButtonShowStyles = css`
+  ${signUpButtonStyles};
+  ${MEDIA.TABLET_UP} {
+    animation: ${FADEIN} 0.5s ${TRANSITION_TIMINGS.CUBIC} forwards;
   }
 `
 
