@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   resetWindow = () => {
-    window.scrollTo(0, 0)
+    document.body.scrollTo(0, 0)
     return null
   }
 
