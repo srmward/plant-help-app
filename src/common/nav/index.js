@@ -12,7 +12,7 @@ export default class Nav extends Component {
   render() {
     let { showMenu, onClick } = this.props
     return (
-      <nav>
+      <nav style={{ zIndex: '9999' }}>
         <AuthConsumer>
           {({ isAuth, logout }) => (
             <ul css={navStyles}>

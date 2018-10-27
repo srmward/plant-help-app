@@ -21,6 +21,7 @@ export const navStyles = css`
 `
 
 export const mobileMenuLink = css`
+  z-index: 9999;
   display: block;
   font-weight: bold;
   cursor: pointer;

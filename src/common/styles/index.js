@@ -1,9 +1,14 @@
 import { css } from 'emotion'
-import { MEDIA, COLORS, LAYOUT_STYLES } from '../../theme'
+import { COLORS, LAYOUT_STYLES, FADEIN, TRANSITION_TIMINGS } from '../../theme'
 
 export const headingStyles = css`
   margin-bottom: 1rem;
   color: ${COLORS.PRIMARY};
+`
+
+export const formWrapperStyles = css`
+  visibility: hidden;
+  animation: ${FADEIN} 0.5s 0.25s ${TRANSITION_TIMINGS.CUBIC} forwards;
 `
 
 export const formStyles = css`

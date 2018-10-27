@@ -15,6 +15,7 @@ import {
   orStyles,
   fbButtonStyles,
   fbButtonLoadingStyles,
+  formWrapperStyles,
 } from '../../common/styles'
 
 const LOG_IN = gql`
@@ -59,7 +60,7 @@ class LoginForm extends Component {
     return (
       <Mutation mutation={LOG_IN}>
         {(login, { data, error }) => (
-          <div css={LAYOUT_STYLES}>
+          <div css={formWrapperStyles}>
             <h1 css={headingStyles}>log in</h1>
             <AuthConsumer>
               {({ handleAuth }) => {

@@ -15,6 +15,7 @@ export default css`
 
 export const mainContentStyles = css`
   width: 80%;
+  height: 100vh;
   margin: 0 auto;
   margin-top: 2.5rem;
   ${MEDIA.TABLET_UP} {

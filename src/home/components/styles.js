@@ -24,6 +24,8 @@ export const cardImageContainerStyles = css`
 `
 
 export const cardStyles = css`
+  visibility: hidden;
+  animation: ${FADEIN} 0.5s 0.25s ${TRANSITION_TIMINGS.CUBIC} forwards;
   ${cardImageContainerStyles};
   ${MEDIA.TABLET_UP} {
     flex: 0 0 auto;

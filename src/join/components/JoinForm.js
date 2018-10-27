@@ -16,6 +16,7 @@ import {
   fbButtonStyles,
   alreadyStyles,
   fbButtonLoadingStyles,
+  formWrapperStyles,
 } from '../../common/styles'
 
 const SIGN_UP = gql`
@@ -60,7 +61,7 @@ class JoinForm extends Component {
     return (
       <Mutation mutation={SIGN_UP}>
         {(signup, { data, error }) => (
-          <div>
+          <div css={formWrapperStyles}>
             <h1 css={headingStyles}>join</h1>
             <AuthConsumer>
               {({ handleAuth }) => {
