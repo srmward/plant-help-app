@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 import { AuthConsumer } from '../../common/contexts/AuthContext'
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 import { Link } from 'react-router-dom'
-
+import FacebookButton from '../../common/ctas/FacebookButton'
 import {
   formStyles,
   inputStyles,
@@ -48,18 +47,6 @@ class JoinForm extends Component {
     email: '',
     password: '',
     isLoading: false,
-  }
-
-  responseFacebook = ({ email, name, id }, cb) => {
-    if (!email) return
-    let fbUser = {
-      variables: {
-        email,
-        name,
-        fbUserId: id,
-      },
-    }
-    return cb(fbUser)
   }
 
   handleChange = e => {
@@ -129,12 +116,8 @@ class JoinForm extends Component {
                         {isLoading && !error ? 'loading ...' : 'sign up'}
                       </button>
                       <div css={orStyles}>or</div>
-                      <FacebookLogin
-                        appId={process.env.REACT_APP_FACEBOOK_APP_ID}
-                        autoLoad={true}
-                        disableMobileRedirect={true}
-                        fields="name,email,picture"
-                        callback={r => this.responseFacebook(r, signup)}
+                      <FacebookButton
+                        cb={signup}
                         render={renderProps => (
                           <div
                             css={
@@ -145,11 +128,11 @@ class JoinForm extends Component {
                             onClick={() => {
                               this.setState({ isLoading: true })
                               error = false
-                              return renderProps.onClick
+                              return renderProps.onClick()
                             }}
                           >
                             {isLoading && !error
-                              ? 'loading ...'
+                              ? 'loading...'
                               : 'f | continue with facebook'}
                           </div>
                         )}

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
 import { AuthConsumer } from '../../common/contexts/AuthContext'
+import FacebookButton from '../../common/ctas/FacebookButton'
+import { LAYOUT_STYLES } from '../../theme'
 import {
   inputStyles,
   formStyles,
@@ -14,9 +16,6 @@ import {
   fbButtonStyles,
   fbButtonLoadingStyles,
 } from '../../common/styles'
-import { LAYOUT_STYLES } from '../../theme'
-import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
-import Cookies from 'js-cookie'
 
 const LOG_IN = gql`
   mutation login(
@@ -46,18 +45,6 @@ class LoginForm extends Component {
     email: '',
     password: '',
     isLoading: false,
-  }
-
-  responseFacebook = ({ email, name, id }, cb) => {
-    if (!email) return
-    let fbUser = {
-      variables: {
-        email,
-        name,
-        fbUserId: id,
-      },
-    }
-    return cb(fbUser)
   }
 
   handleChange = e => {
@@ -126,12 +113,8 @@ class LoginForm extends Component {
                         {isLoading && !error ? 'loading ...' : 'log in'}
                       </button>
                       <div css={orStyles}>or</div>
-                      <FacebookLogin
-                        appId={process.env.REACT_APP_FACEBOOK_APP_ID}
-                        autoLoad={true}
-                        disableMobileRedirect={true}
-                        fields="name,email,picture"
-                        callback={r => this.responseFacebook(r, login)}
+                      <FacebookButton
+                        cb={login}
                         render={renderProps => (
                           <div
                             css={
