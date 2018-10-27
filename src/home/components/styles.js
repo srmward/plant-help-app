@@ -1,5 +1,5 @@
 import { css } from 'emotion'
-import { COLORS, MEDIA, TRANSITION_TIMINGS, FADEIN } from '../../theme'
+import { COLORS, MEDIA, TRANSITION_TIMINGS, FADEIN, FADEOUT } from '../../theme'
 
 const MARGIN_SIZE = '80px'
 
