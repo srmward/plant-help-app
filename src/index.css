@@ -4,7 +4,6 @@ html {
   padding: 0;
   background-color: #f3f4f8;
   font-family: 'Roboto Mono', monospace;
-  overflow-y: hidden;
   /* font-family: -apple-system, BlinkMacSystemFont, HelveticaNeue, Helvetica,
     Roboto, Arial, sans-serif; */
 }
@@ -15,11 +14,11 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* @media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) {
   html {
     overflow-y: hidden;
   }
   body {
     overflow-y: auto;
   }
-} */
+}
