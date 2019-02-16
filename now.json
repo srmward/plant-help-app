@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "name": "plant-help",
+  "type": "static",
+  "static": {
+    "cleanUrls": true,
+    "directoryListing": false,
+    "rewrites": [{ "source": "/*", "destination": "/index.html" }]
+  }
+}
