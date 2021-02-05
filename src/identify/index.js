@@ -9,7 +9,7 @@ export default () => (
     <p css={identifyContentStyles}>coming soon.</p>
     <p css={identifyContentStyles}>
       enter your email below to receive updates when the feature is released
-      (Summer 2019).
+      (Summer 2021).
     </p>
     <EmailForm />
   </div>

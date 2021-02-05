@@ -7,7 +7,7 @@ export default ({ handleAboutDisplay }) => (
   <div css={modalStyles} onClick={() => handleAboutDisplay()}>
     <p>life demands attention, plants included.</p>
     <p>an offering of tools for support and exploration.</p>
-    <p>&copy; sward 2019</p>
+    <p>&copy; sward {new Date().getFullYear()}</p>
     <div css={srcContainerStyles}>
       <img css={ghStyles} src={gh} />
       <a href="https://github.com/srmward/plant-help-app" target="_blank">
